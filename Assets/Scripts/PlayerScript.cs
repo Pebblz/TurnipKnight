@@ -8,11 +8,13 @@ public class PlayerScript : MonoBehaviour
 
     private bool grounded = true;
     public float speed;
+    public float defaultSpeed;
     public Rigidbody rigidbody;
     
     // Start is called before the first frame update
     void Start()
     {
+        defaultSpeed = speed;
         grounded = true;
         rigidbody = GetComponent<Rigidbody>();
     }

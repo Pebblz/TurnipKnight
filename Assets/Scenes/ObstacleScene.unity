@@ -521,5 +521,79 @@ PrefabInstance:
       propertyPath: m_Name
       value: JelloTrap
       objectReference: {fileID: 0}
+    - target: {fileID: 5687264863528850855, guid: 6357ef22a9e4099458076c5c1e39ea07,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6357ef22a9e4099458076c5c1e39ea07, type: 3}
+--- !u!1001 &6611075225299305339
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6611075225366387179, guid: 985c5b81119748a4284f2c30b9aebbc6,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611075225366387179, guid: 985c5b81119748a4284f2c30b9aebbc6,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611075225366387179, guid: 985c5b81119748a4284f2c30b9aebbc6,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611075225366387179, guid: 985c5b81119748a4284f2c30b9aebbc6,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611075225366387179, guid: 985c5b81119748a4284f2c30b9aebbc6,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611075225366387179, guid: 985c5b81119748a4284f2c30b9aebbc6,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611075225366387179, guid: 985c5b81119748a4284f2c30b9aebbc6,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611075225366387179, guid: 985c5b81119748a4284f2c30b9aebbc6,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611075225366387179, guid: 985c5b81119748a4284f2c30b9aebbc6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611075225366387179, guid: 985c5b81119748a4284f2c30b9aebbc6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611075225366387179, guid: 985c5b81119748a4284f2c30b9aebbc6,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6611075225366387184, guid: 985c5b81119748a4284f2c30b9aebbc6,
+        type: 3}
+      propertyPath: m_Name
+      value: GreaseTrap
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 985c5b81119748a4284f2c30b9aebbc6, type: 3}

@@ -10,7 +10,7 @@ public abstract class Obstacle : MonoBehaviour
     /// <summary>
     /// Override this method to add additional effects to the object
     /// </summary>
-    public void AdditionalEffects() 
+    public virtual void AdditionalEffects() 
     {
         return;
     }

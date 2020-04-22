@@ -5,7 +5,7 @@ using UnityEngine;
 public class StickyModifier : PlayerModifier
 {
 
-    private void Start()
+    public override void Start()
     {
         this.timeout = 3.0f;
   

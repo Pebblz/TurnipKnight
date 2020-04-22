@@ -6,7 +6,7 @@ public class BouncyModifier : PlayerModifier
 {
 
 
-    private void Start()
+    public override void Start()
     {
         this.timeout = 0.1f;
     }

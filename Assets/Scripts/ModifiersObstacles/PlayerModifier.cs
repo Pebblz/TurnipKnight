@@ -8,7 +8,7 @@ public abstract class PlayerModifier : MonoBehaviour
     public float timeout = 0f;
     public bool isAcivated = false;
 
-
+    public abstract void Start();
     public GameObject GetPlayer()
     {
         return GameObject.FindGameObjectWithTag("PLAYER");

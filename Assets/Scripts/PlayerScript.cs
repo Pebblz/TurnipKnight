@@ -8,6 +8,7 @@ public class PlayerScript : MonoBehaviour
 
     private bool grounded = true;
     public float speed;
+    public int score = 0;
     public float defaultSpeed;
     public Rigidbody rigidbody;
     
@@ -23,7 +24,7 @@ public class PlayerScript : MonoBehaviour
     void Update()
     {
         transform.Translate(new Vector3(speed * Time.deltaTime, 0f,0f));
-        
+       
         if (isTouched() && grounded)
         {
             jump();

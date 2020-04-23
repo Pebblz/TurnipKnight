@@ -8,9 +8,13 @@ public class PlayerScript : MonoBehaviour
 
     public bool grounded = true;
     public float speed;
+    public float MaxSpeed;
     public int score = 0;
     public float defaultSpeed;
     public Rigidbody rigidbody;
+    public float timer;
+    private float timerStartValue;
+    public float accel;
     
     // Start is called before the first frame update
     void Start()
@@ -18,6 +22,7 @@ public class PlayerScript : MonoBehaviour
         defaultSpeed = speed;
         grounded = true;
         rigidbody = GetComponent<Rigidbody>();
+        timerStartValue = timer;
     }
 
     // Update is called once per frame
@@ -36,7 +41,16 @@ public class PlayerScript : MonoBehaviour
 
             jump();
         }
-        
+
+        timer -= Time.deltaTime;
+        if(timer <= 0)
+        {
+            speed += accel;
+            defaultSpeed = speed;
+            timer = timerStartValue;
+        }
+        print(speed);
+
     }
     
     public bool isTouched()

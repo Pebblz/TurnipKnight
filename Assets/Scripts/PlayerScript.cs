@@ -6,7 +6,7 @@ using UnityEngine;
 public class PlayerScript : MonoBehaviour
 {
 
-    private bool grounded = true;
+    public bool grounded = true;
     public float speed;
     public int score = 0;
     public float defaultSpeed;

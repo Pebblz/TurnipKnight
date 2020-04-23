@@ -285,6 +285,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: Floor 3
       objectReference: {fileID: 0}
+    - target: {fileID: 2019400409347936085, guid: 420fda42632956f448d76f2c5569b02b,
+        type: 3}
+      propertyPath: trap1
+      value: 
+      objectReference: {fileID: 5687264863528850855, guid: 6357ef22a9e4099458076c5c1e39ea07,
+        type: 3}
+    - target: {fileID: 2019400409347936085, guid: 420fda42632956f448d76f2c5569b02b,
+        type: 3}
+      propertyPath: trap2
+      value: 
+      objectReference: {fileID: 5363192755870203861, guid: 2da9e7e7f3bd5a648a588c160f62e6fe,
+        type: 3}
+    - target: {fileID: 2019400409347936085, guid: 420fda42632956f448d76f2c5569b02b,
+        type: 3}
+      propertyPath: trap3
+      value: 
+      objectReference: {fileID: 5363192755870203861, guid: 2da9e7e7f3bd5a648a588c160f62e6fe,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 420fda42632956f448d76f2c5569b02b, type: 3}
 --- !u!1001 &1568429636
@@ -353,6 +371,29 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Floor 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2019400409347936085, guid: 420fda42632956f448d76f2c5569b02b,
+        type: 3}
+      propertyPath: trap1
+      value: 
+      objectReference: {fileID: 6611075225366387184, guid: 985c5b81119748a4284f2c30b9aebbc6,
+        type: 3}
+    - target: {fileID: 2019400409347936085, guid: 420fda42632956f448d76f2c5569b02b,
+        type: 3}
+      propertyPath: trap2
+      value: 
+      objectReference: {fileID: 5687264863528850855, guid: 6357ef22a9e4099458076c5c1e39ea07,
+        type: 3}
+    - target: {fileID: 2019400409347936085, guid: 420fda42632956f448d76f2c5569b02b,
+        type: 3}
+      propertyPath: trap3
+      value: 
+      objectReference: {fileID: 5363192755870203861, guid: 2da9e7e7f3bd5a648a588c160f62e6fe,
+        type: 3}
+    - target: {fileID: 2019400409347936085, guid: 420fda42632956f448d76f2c5569b02b,
+        type: 3}
+      propertyPath: startingSegment
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 420fda42632956f448d76f2c5569b02b, type: 3}
@@ -428,6 +469,24 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2019400409347936085, guid: 420fda42632956f448d76f2c5569b02b,
+        type: 3}
+      propertyPath: trap1
+      value: 
+      objectReference: {fileID: 5687264863528850855, guid: 6357ef22a9e4099458076c5c1e39ea07,
+        type: 3}
+    - target: {fileID: 2019400409347936085, guid: 420fda42632956f448d76f2c5569b02b,
+        type: 3}
+      propertyPath: trap2
+      value: 
+      objectReference: {fileID: 6611075225366387184, guid: 985c5b81119748a4284f2c30b9aebbc6,
+        type: 3}
+    - target: {fileID: 2019400409347936085, guid: 420fda42632956f448d76f2c5569b02b,
+        type: 3}
+      propertyPath: trap3
+      value: 
+      objectReference: {fileID: 5363192755870203861, guid: 2da9e7e7f3bd5a648a588c160f62e6fe,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 420fda42632956f448d76f2c5569b02b, type: 3}
 --- !u!1 &2087424764
@@ -537,7 +596,7 @@ PrefabInstance:
     - target: {fileID: 7078195400760715932, guid: b1e9c9f9fc6eaa84ab9d5468a6274192,
         type: 3}
       propertyPath: m_Constraints
-      value: 72
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 7078195400760715934, guid: b1e9c9f9fc6eaa84ab9d5468a6274192,
         type: 3}

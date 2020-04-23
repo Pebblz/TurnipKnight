@@ -28,5 +28,17 @@ public abstract class Obstacle : MonoBehaviour
             AdditionalEffects();
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "PLAYER")
+        {
+            for (int i = 0; i < modifiers.Count; i++)
+            {
+                modifiers[i].activate();
+                modifiers[i].isAcivated = true;
+            }
+            AdditionalEffects();
+        }
+    }
 
 }

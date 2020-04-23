@@ -49,7 +49,7 @@ public class PlayerScript : MonoBehaviour
             defaultSpeed = speed;
             timer = timerStartValue;
         }
-        print(speed);
+      
 
     }
     

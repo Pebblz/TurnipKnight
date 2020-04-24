@@ -17,7 +17,7 @@ public class PlayerScript : MonoBehaviour
     public float accel;
     public float capSpeed;
     public bool isDead = false;
-    private float fixSuperBoostTimer = 5f;
+    public float fixSuperBoostTimer = 5f;
     private float defaultSuperBoostTimer;
     
     // Start is called before the first frame update
@@ -73,7 +73,7 @@ public class PlayerScript : MonoBehaviour
 
         if (fixSuperBoostTimer <= 0)
         {
-            speed = MaxSpeed;
+            speed = default;
             fixSuperBoostTimer = defaultSuperBoostTimer;
         }
         

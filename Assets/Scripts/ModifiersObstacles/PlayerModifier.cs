@@ -14,7 +14,7 @@ public abstract class PlayerModifier : MonoBehaviour
         return GameObject.FindGameObjectWithTag("PLAYER");
     }
     
-    public void coolDown()
+    public virtual void coolDown()
     {
         if (isAcivated)
         {

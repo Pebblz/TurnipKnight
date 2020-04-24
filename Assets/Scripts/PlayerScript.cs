@@ -62,8 +62,14 @@ public class PlayerScript : MonoBehaviour
         if(speed > capSpeed)
         {
             speed = capSpeed;
+            
+        }
+
+        if(speed == capSpeed)
+        {
             fixSuperBoostTimer -= Time.deltaTime;
         }
+
 
         if (fixSuperBoostTimer <= 0)
         {

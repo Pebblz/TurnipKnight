@@ -17,6 +17,8 @@ public class PlayerScript : MonoBehaviour
     public float accel;
     public float capSpeed;
     public bool isDead = false;
+    private float fixSuperBoostTimer = 5f;
+    private float defaultSuperBoostTimer;
     
     // Start is called before the first frame update
     void Start()
@@ -26,6 +28,7 @@ public class PlayerScript : MonoBehaviour
         rigidbody = GetComponent<Rigidbody>();
         timerStartValue = timer;
         capSpeed = MaxSpeed + 10;
+        defaultSuperBoostTimer = fixSuperBoostTimer;
     }
 
     // Update is called once per frame
@@ -59,6 +62,13 @@ public class PlayerScript : MonoBehaviour
         if(speed > capSpeed)
         {
             speed = capSpeed;
+            fixSuperBoostTimer -= Time.deltaTime;
+        }
+
+        if (fixSuperBoostTimer <= 0)
+        {
+            speed = MaxSpeed;
+            fixSuperBoostTimer = defaultSuperBoostTimer;
         }
         
     }

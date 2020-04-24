@@ -15,6 +15,7 @@ public class BouncyModifier : PlayerModifier
         GameObject Player = this.GetPlayer();
         Vector3 bounceForce = new Vector3(0, 4, 0);
         Player.GetComponent<PlayerScript>().rigidbody.AddForce(bounceForce, ForceMode.Impulse);
+        Player.GetComponent<PlayerScript>().grounded = false;
 
 
     }

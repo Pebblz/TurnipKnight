@@ -73,7 +73,7 @@ public class PlayerScript : MonoBehaviour
 
         if (fixSuperBoostTimer <= 0)
         {
-            speed = default;
+            speed = defaultSpeed;
             fixSuperBoostTimer = defaultSuperBoostTimer;
         }
         

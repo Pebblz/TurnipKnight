@@ -107,7 +107,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b17f89524c362240829f12ee97bb9b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  grounded: 1
   speed: 2
+  MaxSpeed: 10
   score: 0
   defaultSpeed: 0
   rigidbody: {fileID: 0}

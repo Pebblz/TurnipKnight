@@ -64,8 +64,7 @@ public class FloorScript : MonoBehaviour
         //gives back a fair bit of traps per each floor segment, and it slowly decreases as the player 
         //gets faster.
         
-        //return number for testing;
-        return 4;
+ 
 
         float playerspeed = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<PlayerScript>().speed;
         return Mathf.CeilToInt(Mathf.Sqrt(this.transform.localScale.x / playerspeed));
@@ -98,7 +97,7 @@ public class FloorScript : MonoBehaviour
                     traps.Add(t);
                     break;
                 case 3:
-                     t = Instantiate(trap2);
+                     t = Instantiate(trap3);
                     traps.Add(t);
                     break;
             }

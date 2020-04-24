@@ -23,7 +23,7 @@ public class StickyModifier : PlayerModifier
     protected override void deactivate()
     {
         GameObject player = this.GetPlayer();
-        float newSpeed = player.GetComponent<PlayerScript>().defaultSpeed * 2;
+        float newSpeed = player.GetComponent<PlayerScript>().defaultSpeed;
         player.GetComponent<PlayerScript>().speed = newSpeed;
     }
 

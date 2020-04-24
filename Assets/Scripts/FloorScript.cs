@@ -13,6 +13,10 @@ public class FloorScript : MonoBehaviour
     public bool startingSegment;
     private List<GameObject> traps = new List<GameObject>();
     private GameObject[] resources;
+    public GameObject seg1;
+    public GameObject seg2;
+    public GameObject seg3;
+    public GameObject seg4;
 
 
     private void Start()
@@ -128,6 +132,35 @@ public class FloorScript : MonoBehaviour
         newPos.x = curPos.x + GameObject.FindGameObjectsWithTag("FLOOR").Length * this.transform.localScale.x;
         this.transform.position = newPos;
         respawnTraps();
+        seg1.SetActive(true);
+        seg2.SetActive(true);
+        seg3.SetActive(true);
+        seg4.SetActive(true);
+        chooseSegmet();
+    }
+
+    public void chooseSegmet()
+    {
+        float whichseg = Random.Range(0, 3);
+
+        switch(whichseg)
+        {
+            case 0:
+                seg1.SetActive(false);
+                break;
+
+            case 1:
+                seg2.SetActive(false);
+                break;
+
+            case 2:
+                seg3.SetActive(false);
+                break;
+
+            case 3:
+                seg4.SetActive(false);
+                break;
+        }
     }
 
     private void OnCollisionEnter(Collision collision)

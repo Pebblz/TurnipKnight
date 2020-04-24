@@ -43,10 +43,18 @@ public class PlayerScript : MonoBehaviour
         }
 
         timer -= Time.deltaTime;
-        if(timer <= 0)
+        if (timer <= 0)
         {
-            speed += accel;
-            defaultSpeed = speed;
+            if (speed > MaxSpeed)
+            {
+                speed = MaxSpeed;
+            }
+            else
+            {
+               defaultSpeed += accel;
+                speed = defaultSpeed;
+            }
+            
             timer = timerStartValue;
         }
       

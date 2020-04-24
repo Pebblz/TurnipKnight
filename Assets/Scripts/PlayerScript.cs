@@ -16,6 +16,7 @@ public class PlayerScript : MonoBehaviour
     private float timerStartValue;
     public float accel;
     public float capSpeed;
+    public bool isDead = false;
     
     // Start is called before the first frame update
     void Start()

@@ -3,8 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CollectableModifier : PlayerModifier
-{
-    // Start is called before the first frame update
+{    // Start is called before the first frame update
     public override void activate()
     {
         GameObject player = this.GetPlayer();

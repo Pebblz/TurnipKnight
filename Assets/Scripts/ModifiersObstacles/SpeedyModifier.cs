@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class SpeedyModifier : PlayerModifier
 {
+    // Start is called before the first frame update
+    public override void Start()
+    {
+        this.timeout = 1f;
+    }
     public override void activate()
     {
         GameObject player = this.GetPlayer();
@@ -18,11 +23,8 @@ public class SpeedyModifier : PlayerModifier
         player.GetComponent<PlayerScript>().speed = newSpeed;
     }
 
-    // Start is called before the first frame update
-    public override void Start()
-    {
-        this.timeout = 1f;
-    }
+    
+    
 
 
 }

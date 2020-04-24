@@ -12,14 +12,13 @@ public class FloorScript : MonoBehaviour
     private bool needToBeMoved = false;
     public bool startingSegment;
     private List<GameObject> traps = new List<GameObject>();
+    private GameObject[] resources;
 
-    //temporary list of traps before I get resource manager setup
-    public GameObject trap1;
-    public GameObject trap2;
-    public GameObject trap3;
 
     private void Start()
     {
+
+        resources = Resources.LoadAll<GameObject>("TrapPrefabs");
         if (!startingSegment)
         {
             respawnTraps();
@@ -33,10 +32,10 @@ public class FloorScript : MonoBehaviour
             updatePosition();
             
         }
-        //if (Input.GetKey(KeyCode.R))
-        //{
-        //    respawnTraps(); 
-        //}
+        if (Input.GetKey(KeyCode.R))
+        {
+            respawnTraps();
+        }
     }
 
     public bool isOutOfView()
@@ -63,8 +62,8 @@ public class FloorScript : MonoBehaviour
         //it just seems that the sqrt of the width of the floor divided by the player speed
         //gives back a fair bit of traps per each floor segment, and it slowly decreases as the player 
         //gets faster.
-        
- 
+
+        return 4;
 
         float playerspeed = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<PlayerScript>().speed;
         return Mathf.CeilToInt(Mathf.Sqrt(this.transform.localScale.x / playerspeed));
@@ -82,29 +81,11 @@ public class FloorScript : MonoBehaviour
 
         for( int i = 0; i < numberOfGroups; i++)
         {
-            int trapDecider = Random.Range(1, 3);
+            int trapDecider = Random.Range(0, this.resources.Length) ;
             GameObject t;
-            switch (trapDecider)
-            {
-                case 1:
 
-                    t = Instantiate(trap1);
-                    traps.Add(t);
-
-                    break;
-                case 2:
-                     t = Instantiate(trap2);
-                    traps.Add(t);
-                    break;
-                case 3:
-                     t = Instantiate(trap3);
-                    traps.Add(t);
-                    break;
-            }
-            
-           
-
-           
+            t = Instantiate(this.resources[trapDecider]);
+            traps.Add(t);
 
         }
 

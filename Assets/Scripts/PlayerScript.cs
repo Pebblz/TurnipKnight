@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class PlayerScript : MonoBehaviour
@@ -81,10 +82,21 @@ public class PlayerScript : MonoBehaviour
                 speed = defaultSpeed;
                 fixSuperBoostTimer = defaultSuperBoostTimer;
             }
+
+            if (gameObject.transform.position.y <= -10)
+            {
+                dead = true;
+                gameObject.GetComponent<Rigidbody>().useGravity = false;
+            }
         }
+        
 
         else
         {
+            GameObject.Find("ScoreText").GetComponent<Text>().text = "Score: " + score;
+            GameObject.Find("GameOverCanvas").GetComponent<Canvas>().enabled = true;
+            
+
             //play death animation
             //freeze posion or turn off gravity after player falls off bottom of screen 
         }

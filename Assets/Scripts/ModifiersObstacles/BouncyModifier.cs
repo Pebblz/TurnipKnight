@@ -17,7 +17,6 @@ public class BouncyModifier : PlayerModifier
         Player.GetComponent<PlayerScript>().rigidbody.AddForce(bounceForce, ForceMode.Impulse);
         Player.GetComponent<PlayerScript>().grounded = false;
 
-
     }
 
 

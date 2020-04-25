@@ -141,7 +141,7 @@ public class FloorScript : MonoBehaviour
 
     public void chooseSegmet()
     {
-        float whichseg = Random.Range(0, 3);
+        int whichseg = Random.Range(0, 3);
 
         switch(whichseg)
         {

@@ -14,6 +14,8 @@ public class CollectableObstacle : Obstacle
 
     public override void AdditionalEffects()
     {
+        GameManager.soundSource.pitch = Random.Range(0.8f, 1.2f);
+        GameManager.soundSource.PlayOneShot(GameObject.Find("Player").GetComponent<PlayerScript>().scoreSound);
         Destroy(this.gameObject);
     }
 }

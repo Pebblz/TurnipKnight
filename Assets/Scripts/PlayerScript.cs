@@ -16,9 +16,11 @@ public class PlayerScript : MonoBehaviour
     private float timerStartValue;
     public float accel;
     public float capSpeed;
-    public bool isDead = false;
+    public bool dead = false;
     public float fixSuperBoostTimer = 5f;
     private float defaultSuperBoostTimer;
+    public AudioClip scoreSound;
+    public AudioClip deathSound;
     
     // Start is called before the first frame update
     void Start()
@@ -34,54 +36,68 @@ public class PlayerScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(new Vector3(speed * Time.deltaTime, 0f,0f));
-        
-
-        if (isTouched() && grounded)
-        {
-            jump();
-           
-
-        }
-        if (Input.GetKeyDown(KeyCode.Space) && grounded)
+        if (!isDead())
         {
 
-            jump();
-        }
+            transform.Translate(new Vector3(speed * Time.deltaTime, 0f, 0f));
 
-        timer -= Time.deltaTime;
-        if (timer <= 0)
-        {
-            if (defaultSpeed != MaxSpeed)
+
+            if (isTouched() && grounded)
             {
-                defaultSpeed += accel;
+                jump();
+
+
             }
-            timer = timerStartValue;
+            if (Input.GetKeyDown(KeyCode.Space) && grounded)
+            {
+
+                jump();
+            }
+
+            timer -= Time.deltaTime;
+            if (timer <= 0)
+            {
+                if (defaultSpeed != MaxSpeed)
+                {
+                    defaultSpeed += accel;
+                }
+                timer = timerStartValue;
+            }
+
+            if (speed > capSpeed)
+            {
+                speed = capSpeed;
+
+            }
+
+            if (speed == capSpeed)
+            {
+                fixSuperBoostTimer -= Time.deltaTime;
+            }
+
+
+            if (fixSuperBoostTimer <= 0)
+            {
+                speed = defaultSpeed;
+                fixSuperBoostTimer = defaultSuperBoostTimer;
+            }
         }
 
-        if(speed > capSpeed)
+        else
         {
-            speed = capSpeed;
-            
+            //play death animation
+            //freeze posion or turn off gravity after player falls off bottom of screen 
         }
-
-        if(speed == capSpeed)
-        {
-            fixSuperBoostTimer -= Time.deltaTime;
-        }
-
-
-        if (fixSuperBoostTimer <= 0)
-        {
-            speed = defaultSpeed;
-            fixSuperBoostTimer = defaultSuperBoostTimer;
-        }
-        
     }
     
     public bool isTouched()
     {
         return (Input.touchCount > 0);
+    }
+
+    public bool isDead()
+    {
+        return dead;
     }
 
 

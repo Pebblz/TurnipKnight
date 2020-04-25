@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class FloorManager : MonoBehaviour
@@ -8,11 +9,14 @@ public class FloorManager : MonoBehaviour
     public GameObject floorPrefab;
     public GameObject[] trapPrefabs;
     private GameObject[] floors;
+    public List<GameObject> layouts;
+    public bool visibleTrapSpawnLocations = false;
 
     public float padding = 2f;
     public int segCount = 3;
     void Start()
     {
+        layouts = Resources.LoadAll<GameObject>("layouts").ToList<GameObject>();
         floors = new GameObject[3];
         trapPrefabs = Resources.LoadAll<GameObject>("TrapPrefabs");
         floors[0] = Instantiate(floorPrefab);
@@ -26,18 +30,29 @@ public class FloorManager : MonoBehaviour
 
             for(int j = 0; j < segCount; j++ )
             {
-                floors[i].GetComponent<FloorScript>().segs.Add(Instantiate(GameObject.CreatePrimitive(PrimitiveType.Sphere)));
+                GameObject empty = (visibleTrapSpawnLocations) ? GameObject.CreatePrimitive(PrimitiveType.Sphere) : new GameObject();
+                floors[i].GetComponent<FloorScript>().segs.Add(empty);
                 floors[i].GetComponent<FloorScript>().segs[j].transform.parent = floors[i].GetComponent<FloorScript>().transform;
-
-                
-                floors[i].GetComponent<FloorScript>().segs[j].transform.localPosition = new Vector3(-0.33f  +  0.33f * j, 2, 0);
+                floors[i].GetComponent<FloorScript>().segs[j].transform.localPosition = new Vector3(-0.33f  +  0.33f * j, 1, 0);
             }
-        
 
+            spawnTrapsOnFloor(i);
 
         }
 
     }
+
+
+    public void spawnTrapsOnFloor(int floorIdx)
+    {
+        for(int i = 0; i < segCount; i++)
+        {
+            var randTrap = this.layouts[Random.Range(0, this.layouts.Count)];
+            this.floors[floorIdx].GetComponent<FloorScript>().randomTrapsList.Add(randTrap);
+        }
+        this.floors[floorIdx].GetComponent<FloorScript>().respawnTraps();
+    }
+
 
     // Update is called once per frame
     void Update()
@@ -73,6 +88,7 @@ public class FloorManager : MonoBehaviour
                 scaleX = this.floors[2].transform.localScale.x;
                 floors[0].transform.position = new Vector3(posX + scaleX + this.padding, 0, 0);
                 floors[0].GetComponent<FloorScript>().UpdateFloor();
+                
                 break;
             case 1:
                 posX = this.floors[0].transform.position.x;

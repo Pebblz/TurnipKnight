@@ -11,7 +11,8 @@ public class FloorScript : MonoBehaviour
     private bool starting = true;
     private bool needToBeMoved = false;
     public bool startingSegment;
-    private List<GameObject> traps = new List<GameObject>();
+    public List<GameObject> traps = new List<GameObject>();
+    public List<GameObject> randomTrapsList = new List<GameObject>();
     private GameObject[] resources;
     public float padding;
     public List<GameObject> segs = new List<GameObject>();
@@ -49,51 +50,19 @@ public class FloorScript : MonoBehaviour
     }
 
 
-    public int getNumberOfTrapGroups()
-    {
-        //I played around with this math a bit
-        //it just seems that the sqrt of the width of the floor divided by the player speed
-        //gives back a fair bit of traps per each floor segment, and it slowly decreases as the player 
-        //gets faster.
-
-        return 4;
-
-        float playerspeed = GameObject.FindGameObjectWithTag("PLAYER").GetComponent<PlayerScript>().speed;
-        return Mathf.CeilToInt(Mathf.Sqrt(this.transform.localScale.x / playerspeed));
-    } 
 
     public void LoadTraps()
     {
-        int numberOfGroups = getNumberOfTrapGroups();
-        int[] startPos = new int[numberOfGroups];
-        int randMax = (int)this.transform.localScale.x / numberOfGroups;
-        for(int i = 0; i < numberOfGroups; i++)
-        {
-            startPos[i] = Random.Range(0, randMax) + randMax * i;
-        }
-
-        for( int i = 0; i < numberOfGroups; i++)
-        {
-            int trapDecider = Random.Range(0, this.resources.Length) ;
-            GameObject t;
-
-            t = Instantiate(this.resources[trapDecider]);
-            traps.Add(t);
-
-        }
-
         int count = 0;
-        foreach(GameObject child in this.traps)
+        foreach(Transform child in this.transform)
         {
-            Vector3 newPos = new Vector3();
-            newPos.y = child.transform.position.y;
-            newPos.z = child.transform.position.z;
-            newPos.x = startPos[count] + ( this.transform.position.x - this.transform.localScale.x/2);
-            child.transform.position = newPos;
+            var trapPrefab = randomTrapsList[Random.Range(0, randomTrapsList.Count)];
+            var trapToLoad = Instantiate(trapPrefab);
+            trapToLoad.transform.parent = child;
+            trapToLoad.transform.localPosition = child.localPosition;
+            traps.Add(trapToLoad);
             count++;
         }
-
-
 
     }
 
@@ -117,14 +86,9 @@ public class FloorScript : MonoBehaviour
 
         respawnTraps();
 
-        chooseSegmet();
-    }
-
-    public void chooseSegmet()
-    {
-        int whichseg = Random.Range(0, 3);
 
     }
+
 
     private void OnCollisionEnter(Collision collision)
     {

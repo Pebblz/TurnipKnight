@@ -58,8 +58,8 @@ public class FloorScript : MonoBehaviour
         {
             var trapPrefab = randomTrapsList[Random.Range(0, randomTrapsList.Count)];
             var trapToLoad = Instantiate(trapPrefab);
-            trapToLoad.transform.parent = child;
-            trapToLoad.transform.localPosition = child.localPosition;
+            trapToLoad.transform.position = new Vector3(child.position.x, this.transform.position.y, 0);
+          
             traps.Add(trapToLoad);
             count++;
         }

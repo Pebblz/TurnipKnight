@@ -13,6 +13,7 @@ public class FloorScript : MonoBehaviour
     public bool startingSegment;
     private List<GameObject> traps = new List<GameObject>();
     private GameObject[] resources;
+    public float padding;
     public GameObject seg1;
     public GameObject seg2;
     public GameObject seg3;
@@ -30,12 +31,7 @@ public class FloorScript : MonoBehaviour
     }
     void Update()
     {
-        starting = false;
-        if (isOutOfView() && needToBeMoved && !starting)
-        {
-            updatePosition();
-            
-        }
+
         if (Input.GetKey(KeyCode.R))
         {
             respawnTraps();
@@ -123,14 +119,9 @@ public class FloorScript : MonoBehaviour
         clearChildren();
         LoadTraps();
     }
-    public void updatePosition()
+    public void UpdateFloor()
     {
-        Vector3 curPos = this.transform.position;
-        Vector3 newPos = new Vector3();
-        newPos.y = curPos.y;
-        newPos.z = curPos.z;
-        newPos.x = curPos.x + GameObject.FindGameObjectsWithTag("FLOOR").Length * this.transform.localScale.x;
-        this.transform.position = newPos;
+
         respawnTraps();
         seg1.SetActive(true);
         seg2.SetActive(true);

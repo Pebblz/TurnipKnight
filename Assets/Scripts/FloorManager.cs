@@ -12,6 +12,7 @@ public class FloorManager : MonoBehaviour
     private GameObject floor2;
     private GameObject floor3;
     public float padding = 2f;
+    public int segCount = 4;
     void Start()
     {
         floors = new GameObject[3];
@@ -24,21 +25,16 @@ public class FloorManager : MonoBehaviour
         floors[2].transform.position = new Vector3(floors[1].transform.position.x + floors[1].transform.localScale.x + padding, 0, 0);
         for (int i = 0; i < floors.Length; i++)
         {
-            floors[i].GetComponent<FloorScript>().seg1 = Instantiate(GameObject.CreatePrimitive(PrimitiveType.Sphere));
-            floors[i].GetComponent<FloorScript>().seg2 = Instantiate(GameObject.CreatePrimitive(PrimitiveType.Sphere));
-            floors[i].GetComponent<FloorScript>().seg3 = Instantiate(GameObject.CreatePrimitive(PrimitiveType.Sphere));
-            floors[i].GetComponent<FloorScript>().seg4 = Instantiate(GameObject.CreatePrimitive(PrimitiveType.Sphere));
 
-            floors[i].GetComponent<FloorScript>().seg1.transform.parent = floors[i].GetComponent<FloorScript>().transform;
-            floors[i].GetComponent<FloorScript>().seg2.transform.parent = floors[i].GetComponent<FloorScript>().transform;
-            floors[i].GetComponent<FloorScript>().seg3.transform.parent = floors[i].GetComponent<FloorScript>().transform;
-            floors[i].GetComponent<FloorScript>().seg4.transform.parent = floors[i].GetComponent<FloorScript>().transform;
+            for(int j = 0; j < segCount; j++ )
+            {
+                floors[i].GetComponent<FloorScript>().segs.Add(Instantiate(GameObject.CreatePrimitive(PrimitiveType.Sphere)));
+                floors[i].GetComponent<FloorScript>().segs[j].transform.parent = floors[i].GetComponent<FloorScript>().transform;
 
-            floors[i].GetComponent<FloorScript>().seg1.transform.localPosition = new Vector3(0, 2, 0);
-            floors[i].GetComponent<FloorScript>().seg2.transform.localPosition = new Vector3(8, 2, 0);
-            floors[i].GetComponent<FloorScript>().seg3.transform.localPosition = new Vector3(15, 2, 0);
-            floors[i].GetComponent<FloorScript>().seg4.transform.localPosition = new Vector3(27, 2, 0);
-
+                
+                floors[i].GetComponent<FloorScript>().segs[j].transform.localPosition = new Vector3(-0.5f  +  0.25f * j, 2, 0);
+            }
+        
 
 
         }

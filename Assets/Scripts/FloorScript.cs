@@ -14,24 +14,12 @@ public class FloorScript : MonoBehaviour
     private List<GameObject> traps = new List<GameObject>();
     private GameObject[] resources;
     public float padding;
-    public GameObject seg1;
-    public GameObject seg2;
-    public GameObject seg3;
-    public GameObject seg4;
+    public List<GameObject> segs = new List<GameObject>();
 
 
     private void Start()
     {
-        if (!startingSegment)
-        {
-            respawnTraps();
-        }
-
-        seg1 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        seg2 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        seg3 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        seg4 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-        attachSegments();
+    
 
     }
     void Update()
@@ -128,10 +116,7 @@ public class FloorScript : MonoBehaviour
     {
 
         respawnTraps();
-        seg1.SetActive(true);
-        seg2.SetActive(true);
-        seg3.SetActive(true);
-        seg4.SetActive(true);
+
         chooseSegmet();
     }
 
@@ -139,24 +124,6 @@ public class FloorScript : MonoBehaviour
     {
         int whichseg = Random.Range(0, 3);
 
-        switch(whichseg)
-        {
-            case 0:
-                seg1.SetActive(false);
-                break;
-
-            case 1:
-                seg2.SetActive(false);
-                break;
-
-            case 2:
-                seg3.SetActive(false);
-                break;
-
-            case 3:
-                seg4.SetActive(false);
-                break;
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -167,17 +134,5 @@ public class FloorScript : MonoBehaviour
         }
     }
 
-    private void attachSegments()
-    {
-        seg1.transform.SetParent(this.gameObject.transform);
-        seg2.transform.SetParent(this.gameObject.transform);
-        seg3.transform.SetParent(this.gameObject.transform);
-        seg4.transform.SetParent(this.gameObject.transform);
 
-        seg1.transform.localPosition = new Vector3(0, 2, 0);
-        seg2.transform.localPosition = new Vector3(8, 2, 0);
-        seg3.transform.localPosition = new Vector3(15, 2, 0);
-        seg4.transform.localPosition = new Vector3(27, 2, 0);
-
-    }
 }

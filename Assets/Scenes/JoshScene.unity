@@ -348,6 +348,7 @@ MonoBehaviour:
     type: 3}
   trapPrefabs: []
   padding: 2
+  segCount: 3
 --- !u!4 &1439684275
 Transform:
   m_ObjectHideFlags: 0

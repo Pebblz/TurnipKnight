@@ -8,11 +8,9 @@ public class FloorManager : MonoBehaviour
     public GameObject floorPrefab;
     public GameObject[] trapPrefabs;
     private GameObject[] floors;
-    private GameObject floor1;
-    private GameObject floor2;
-    private GameObject floor3;
+
     public float padding = 2f;
-    public int segCount = 4;
+    public int segCount = 3;
     void Start()
     {
         floors = new GameObject[3];
@@ -32,7 +30,7 @@ public class FloorManager : MonoBehaviour
                 floors[i].GetComponent<FloorScript>().segs[j].transform.parent = floors[i].GetComponent<FloorScript>().transform;
 
                 
-                floors[i].GetComponent<FloorScript>().segs[j].transform.localPosition = new Vector3(-0.5f  +  0.25f * j, 2, 0);
+                floors[i].GetComponent<FloorScript>().segs[j].transform.localPosition = new Vector3(-0.33f  +  0.33f * j, 2, 0);
             }
         
 

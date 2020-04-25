@@ -86,16 +86,17 @@ public class PlayerScript : MonoBehaviour
             if (gameObject.transform.position.y <= -10)
             {
                 dead = true;
-                gameObject.GetComponent<Rigidbody>().useGravity = false;
+                gameObject.GetComponent<Rigidbody>().isKinematic = true;
             }
         }
         
 
         else
         {
+            GameObject.Find("Main Camera").GetComponent<CameraScript>().positionBias = 0;
             GameObject.Find("ScoreText").GetComponent<Text>().text = "Score: " + score;
             GameObject.Find("GameOverCanvas").GetComponent<Canvas>().enabled = true;
-            
+           
 
             //play death animation
             //freeze posion or turn off gravity after player falls off bottom of screen 

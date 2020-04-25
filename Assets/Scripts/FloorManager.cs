@@ -22,8 +22,26 @@ public class FloorManager : MonoBehaviour
         floors[1].transform.position = new Vector3(floors[0].transform.position.x + floors[0].transform.localScale.x + padding, 0, 0);
         floors[2] = Instantiate(floorPrefab);
         floors[2].transform.position = new Vector3(floors[1].transform.position.x + floors[1].transform.localScale.x + padding, 0, 0);
-        floors[1].GetComponent<FloorScript>().respawnTraps();
-        floors[2].GetComponent<FloorScript>().respawnTraps();
+        for (int i = 0; i < floors.Length; i++)
+        {
+            floors[i].GetComponent<FloorScript>().seg1 = Instantiate(GameObject.CreatePrimitive(PrimitiveType.Sphere));
+            floors[i].GetComponent<FloorScript>().seg2 = Instantiate(GameObject.CreatePrimitive(PrimitiveType.Sphere));
+            floors[i].GetComponent<FloorScript>().seg3 = Instantiate(GameObject.CreatePrimitive(PrimitiveType.Sphere));
+            floors[i].GetComponent<FloorScript>().seg4 = Instantiate(GameObject.CreatePrimitive(PrimitiveType.Sphere));
+
+            floors[i].GetComponent<FloorScript>().seg1.transform.parent = floors[i].GetComponent<FloorScript>().transform;
+            floors[i].GetComponent<FloorScript>().seg2.transform.parent = floors[i].GetComponent<FloorScript>().transform;
+            floors[i].GetComponent<FloorScript>().seg3.transform.parent = floors[i].GetComponent<FloorScript>().transform;
+            floors[i].GetComponent<FloorScript>().seg4.transform.parent = floors[i].GetComponent<FloorScript>().transform;
+
+            floors[i].GetComponent<FloorScript>().seg1.transform.localPosition = new Vector3(0, 2, 0);
+            floors[i].GetComponent<FloorScript>().seg2.transform.localPosition = new Vector3(8, 2, 0);
+            floors[i].GetComponent<FloorScript>().seg3.transform.localPosition = new Vector3(15, 2, 0);
+            floors[i].GetComponent<FloorScript>().seg4.transform.localPosition = new Vector3(27, 2, 0);
+
+
+
+        }
 
     }
 

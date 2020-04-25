@@ -22,12 +22,17 @@ public class FloorScript : MonoBehaviour
 
     private void Start()
     {
-
-        resources = Resources.LoadAll<GameObject>("TrapPrefabs");
         if (!startingSegment)
         {
             respawnTraps();
         }
+
+        seg1 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        seg2 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        seg3 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        seg4 = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+        attachSegments();
+
     }
     void Update()
     {
@@ -160,5 +165,19 @@ public class FloorScript : MonoBehaviour
         {
             this.needToBeMoved = true;
         }
+    }
+
+    private void attachSegments()
+    {
+        seg1.transform.SetParent(this.gameObject.transform);
+        seg2.transform.SetParent(this.gameObject.transform);
+        seg3.transform.SetParent(this.gameObject.transform);
+        seg4.transform.SetParent(this.gameObject.transform);
+
+        seg1.transform.localPosition = new Vector3(0, 2, 0);
+        seg2.transform.localPosition = new Vector3(8, 2, 0);
+        seg3.transform.localPosition = new Vector3(15, 2, 0);
+        seg4.transform.localPosition = new Vector3(27, 2, 0);
+
     }
 }

@@ -106,3 +106,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5f31a7a84e10b43bf8c717da7b96d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cheese: {fileID: 3472095609566349740, guid: 255af1812a654df42a32d0865f01544f, type: 3}
+  meat: {fileID: 4219374850556037955, guid: b098851edf5afae45858e30248732407, type: 3}
+  apple: {fileID: 5118252994235082414, guid: 29cac25b867537c40b8383378385d9ca, type: 3}
+  swapped: 0

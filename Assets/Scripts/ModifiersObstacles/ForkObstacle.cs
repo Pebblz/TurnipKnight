@@ -9,8 +9,9 @@ public class ForkObstacle : Obstacle
     public override void Start()
     {
         this.gameObject.AddComponent<DeathModifier>();
-
+        this.gameObject.AddComponent<GroundedModifier>();
         this.modifiers.Add(this.gameObject.GetComponent<DeathModifier>());        
+        this.modifiers.Add(this.gameObject.GetComponent<GroundedModifier>());
     }
 
     public void Update()
@@ -27,5 +28,26 @@ public class ForkObstacle : Obstacle
         GameManager.soundSource.pitch = Random.Range(0.8f, 1.2f);
         GameManager.soundSource.PlayOneShot(GameObject.Find("Player").GetComponent<PlayerScript>().deathSound);
         Destroy(this.gameObject);
+    }
+
+    public override void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.tag == "PLAYER")
+        {
+            modifiers[1].activate();
+            modifiers[1].isAcivated = true;
+        }
+    
+        
+    }
+    public override void OnTriggerEnter(Collider collision)
+    {
+        if(collision.gameObject.tag == "PLAYER")
+        {
+            modifiers[0].activate();
+            modifiers[0].isAcivated = true;
+            AdditionalEffects();
+        }
+
     }
 }

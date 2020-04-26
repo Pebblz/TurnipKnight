@@ -9,8 +9,8 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 0857c0fe8ee4fc44688433b76cee1bc3
   - enabled: 1
-    path: Assets/Scenes/JimmyScene.unity
-    guid: 14a6fe66fa7bf23439c840ac6cc90556
+    path: Assets/Scenes/Game.unity
+    guid: c768e1bec0a24434782998f2926977cf
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: a730703f8a482e8409422fed2f328a53

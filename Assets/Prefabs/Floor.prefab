@@ -106,3 +106,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa12ef55851153c46a9d123b5eb1bc11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingSegment: 0
+  traps: []
+  randomTrapsList: []
+  padding: 0
+  segs: []

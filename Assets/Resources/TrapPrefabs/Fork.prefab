@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1148924127696014664}
   - component: {fileID: 1148924127696014660}
   - component: {fileID: 1148924127696014663}
+  - component: {fileID: 4277261499086190800}
   m_Layer: 0
   m_Name: Fork
   m_TagString: Untagged
@@ -90,11 +91,11 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1148924127696014665}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 1, y: 0.2, z: 1}
+  m_Center: {x: 0, y: -0.45, z: 0}
 --- !u!54 &1148924127696014660
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -123,3 +124,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b736b6efd5737dd42b0e402163f9d14b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!65 &4277261499086190800
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1148924127696014665}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.8497258, z: 1}
+  m_Center: {x: 0, y: 0.07513718, z: 0}

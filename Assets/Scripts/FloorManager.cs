@@ -11,11 +11,22 @@ public class FloorManager : MonoBehaviour
     private GameObject[] floors;
     public List<GameObject> layouts;
     public bool visibleTrapSpawnLocations = false;
+    private bool starting;
 
     public float padding = 2f;
     public int segCount = 3;
+    public DIFFICULTY gameDifficulty = DIFFICULTY.EASY;
+    public int floorCount = 0;
+    public enum DIFFICULTY
+    {
+        EASY,
+        MEDIUM,
+        HARD
+    }
+
     void Start()
     {
+        starting = true;
         layouts = Resources.LoadAll<GameObject>("layouts").ToList<GameObject>();
         floors = new GameObject[3];
         trapPrefabs = Resources.LoadAll<GameObject>("TrapPrefabs");
@@ -42,15 +53,29 @@ public class FloorManager : MonoBehaviour
 
     }
 
-
+    public void setDifficulty()
+    {
+        if(this.floorCount >= 10)
+        {
+            this.gameDifficulty = DIFFICULTY.HARD;
+        } else if(this.floorCount >= 5)
+        {
+            this.gameDifficulty = DIFFICULTY.MEDIUM;
+        }
+    }
     public void spawnTrapsOnFloor(int floorIdx)
     {
+        if(floorIdx == 0 && starting)
+        {
+            return;
+        }
+        starting = false;
         for(int i = 0; i < segCount; i++)
         {
             var randTrap = this.layouts[Random.Range(0, this.layouts.Count)];
             this.floors[floorIdx].GetComponent<FloorScript>().randomTrapsList.Add(randTrap);
         }
-        this.floors[floorIdx].GetComponent<FloorScript>().respawnTraps();
+        this.floors[floorIdx].GetComponent<FloorScript>().LoadTraps();
     }
 
 
@@ -62,6 +87,7 @@ public class FloorManager : MonoBehaviour
         {
             moveFloor(outOfView);
         }
+        this.setDifficulty();
     }
 
     public int floorIsOutOfView()
@@ -87,21 +113,26 @@ public class FloorManager : MonoBehaviour
                 posX = this.floors[2].transform.position.x;
                 scaleX = this.floors[2].transform.localScale.x;
                 floors[0].transform.position = new Vector3(posX + scaleX + this.padding, 0, 0);
-                floors[0].GetComponent<FloorScript>().UpdateFloor();
+                floors[0].GetComponent<FloorScript>().clearChildren();
+                this.floorCount++;
+                spawnTrapsOnFloor(0);
                 
                 break;
             case 1:
                 posX = this.floors[0].transform.position.x;
                 scaleX = this.floors[0].transform.localScale.x;
                 floors[1].transform.position = new Vector3(posX + scaleX + this.padding, 0, 0);
-                floors[1].GetComponent<FloorScript>().UpdateFloor();
-
+                floors[1].GetComponent<FloorScript>().clearChildren();
+                spawnTrapsOnFloor(1);
+                this.floorCount++;
                 break;
             case 2:
                 posX = this.floors[1].transform.position.x;
                 scaleX = this.floors[1].transform.localScale.x;
                 floors[2].transform.position = new Vector3(posX + scaleX + this.padding, 0, 0);
-                floors[2].GetComponent<FloorScript>().UpdateFloor();
+                floors[2].GetComponent<FloorScript>().clearChildren();
+                spawnTrapsOnFloor(2);
+                this.floorCount++;
 
                 break;
             default:

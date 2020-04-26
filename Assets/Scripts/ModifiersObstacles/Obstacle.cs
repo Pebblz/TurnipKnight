@@ -16,7 +16,7 @@ public abstract class Obstacle : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter(Collider collision)
+    public virtual void OnTriggerEnter(Collider collision)
     {
         if(collision.gameObject.tag == "PLAYER")
         {
@@ -28,7 +28,7 @@ public abstract class Obstacle : MonoBehaviour
             AdditionalEffects();
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    public virtual void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "PLAYER")
         {

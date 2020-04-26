@@ -8,6 +8,7 @@ TagManager:
   - FLOOR
   - TRAP
   - COLLECT
+  - BACKGROUND
   layers:
   - Default
   - TransparentFX

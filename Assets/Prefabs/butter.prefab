@@ -11,6 +11,8 @@ GameObject:
   - component: {fileID: 1687691745888086131}
   - component: {fileID: 7651866508884939333}
   - component: {fileID: 4110780849669041852}
+  - component: {fileID: 7080084689233247150}
+  - component: {fileID: -7117942548139266814}
   m_Layer: 0
   m_Name: butter
   m_TagString: Untagged
@@ -79,3 +81,29 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &7080084689233247150
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2391617472845470304}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5886125676546601737, guid: 6616e12d93e665f4fb15755f010806e0, type: 3}
+--- !u!114 &-7117942548139266814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2391617472845470304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 359a2785f74534b4482298a7d07ddb7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -55,11 +55,12 @@ public class FloorScript : MonoBehaviour
     public void LoadTraps()
     {
         int count = 0;
-        foreach(Transform child in this.transform)
+        foreach(GameObject child in segs)
         {
+
             var trapPrefab = randomTrapsList[Random.Range(0, randomTrapsList.Count)];
             var trapToLoad = Instantiate(trapPrefab);
-            trapToLoad.transform.position = new Vector3(child.position.x, this.transform.position.y, 0);
+            trapToLoad.transform.position = new Vector3(child.transform.position.x, this.transform.position.y, 0);
           
             traps.Add(trapToLoad);
             count++;

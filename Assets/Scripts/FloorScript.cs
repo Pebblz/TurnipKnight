@@ -28,7 +28,8 @@ public class FloorScript : MonoBehaviour
 
         if (Input.GetKey(KeyCode.R))
         {
-            respawnTraps();
+            clearChildren();
+            LoadTraps();
         }
     }
 
@@ -76,18 +77,8 @@ public class FloorScript : MonoBehaviour
         traps.Clear();
     }
 
-    public void respawnTraps()
-    {
-        clearChildren();
-        LoadTraps();
-    }
-    public void UpdateFloor()
-    {
 
-        respawnTraps();
-
-
-    }
+    
 
 
     private void OnCollisionEnter(Collision collision)

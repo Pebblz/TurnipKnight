@@ -331,7 +331,12 @@ MonoBehaviour:
   floorPrefab: {fileID: 2019400409347936082, guid: 420fda42632956f448d76f2c5569b02b,
     type: 3}
   trapPrefabs: []
+  layouts: []
+  visibleTrapSpawnLocations: 0
   padding: 2
+  segCount: 3
+  gameDifficulty: 0
+  floorCount: 0
 --- !u!4 &190031774
 Transform:
   m_ObjectHideFlags: 0

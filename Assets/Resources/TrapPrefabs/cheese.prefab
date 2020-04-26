@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 319370965}
   m_Layer: 0
   m_Name: cheese
-  m_TagString: COLLECT
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -109,3 +109,4 @@ MonoBehaviour:
   cheese: {fileID: 3472095609566349740}
   meat: {fileID: 4219374850556037955, guid: b098851edf5afae45858e30248732407, type: 3}
   apple: {fileID: 5118252994235082414, guid: 29cac25b867537c40b8383378385d9ca, type: 3}
+  swapped: 0

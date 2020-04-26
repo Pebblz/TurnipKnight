@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class CollectableObstacle : Obstacle
 {
-    //public GameObject cheese;
-    //public GameObject meat;
-    //public GameObject apple;
+    public GameObject cheese;
+    public GameObject meat;
+    public GameObject apple;
 
-    //public bool swapped = false;
+    public bool swapped = false;
 
 
     public override void Start()
@@ -18,37 +18,38 @@ public class CollectableObstacle : Obstacle
         modifiers.Add(this.gameObject.GetComponent<CollectableModifier>());
         modifiers.Add(this.gameObject.GetComponent<ParticleEffectModifier>());
 
-        //if (swapped != true)
-        //{
-        //    foodDecider();
-        //}
+        if (swapped == false && this.gameObject.tag == "COLLECT")
+        {
+            foodDecider();
+        }
     }
 
 
-    //public void foodDecider()
-    //{
-    //    int pUp = Random.Range(0, 2);
+    public void foodDecider()
+    {
+        int pUp = Random.Range(0, 3);
 
-    //    switch (pUp)
-    //    {
-    //        case 0:
-    //            Instantiate(cheese, transform.position, transform.rotation);
-    //            Destroy(gameObject);
-    //            break;
+        switch (pUp)
+        {
+            case 0:
+                Instantiate(meat, transform.position, transform.rotation);
+                Destroy(gameObject);
+                break;
 
-    //        case 1:
-    //            Instantiate(meat, transform.position, transform.rotation);
-    //            Destroy(gameObject);
-    //            break;
+            case 1:
+                Instantiate(cheese, transform.position, transform.rotation);
+                Destroy(gameObject);
+                break;
 
-    //        case 2:
-    //            Instantiate(apple, transform.position, transform.rotation);
-    //            Destroy(gameObject);
-    //            break;
-    //    }
+            case 2:
+                Instantiate(apple, transform.position, transform.rotation);
+                Destroy(gameObject);
+                break;
+        }
 
-    //    swapped = true;
-    //}
+        swapped = true;
+    }
+
     public override void AdditionalEffects()
     {
         GameManager.soundSource.pitch = Random.Range(0.8f, 1.2f);

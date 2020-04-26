@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class BouncyModifier : PlayerModifier
 {
-
+    public float bounce = 4f;
 
     public override void Start()
     {
@@ -13,7 +13,7 @@ public class BouncyModifier : PlayerModifier
     public override void activate()
     {
         GameObject Player = this.GetPlayer();
-        Vector3 bounceForce = new Vector3(0, 4, 0);
+        Vector3 bounceForce = new Vector3(0f, this.bounce, 0f);
         Player.GetComponent<PlayerScript>().rigidbody.AddForce(bounceForce, ForceMode.Impulse);
         Player.GetComponent<PlayerScript>().grounded = false;
 

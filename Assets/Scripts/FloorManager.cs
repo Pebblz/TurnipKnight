@@ -15,6 +15,15 @@ public class FloorManager : MonoBehaviour
 
     public float padding = 2f;
     public int segCount = 3;
+    public DIFFICULTY gameDifficulty = DIFFICULTY.EASY;
+    public int floorCount = 0;
+    public enum DIFFICULTY
+    {
+        EASY,
+        MEDIUM,
+        HARD
+    }
+
     void Start()
     {
         starting = true;
@@ -44,13 +53,23 @@ public class FloorManager : MonoBehaviour
 
     }
 
-
+    public void setDifficulty()
+    {
+        if(this.floorCount >= 10)
+        {
+            this.gameDifficulty = DIFFICULTY.HARD;
+        } else if(this.floorCount >= 5)
+        {
+            this.gameDifficulty = DIFFICULTY.MEDIUM;
+        }
+    }
     public void spawnTrapsOnFloor(int floorIdx)
     {
         if(floorIdx == 0 && starting)
         {
             return;
         }
+        starting = false;
         for(int i = 0; i < segCount; i++)
         {
             var randTrap = this.layouts[Random.Range(0, this.layouts.Count)];
@@ -68,6 +87,7 @@ public class FloorManager : MonoBehaviour
         {
             moveFloor(outOfView);
         }
+        this.setDifficulty();
     }
 
     public int floorIsOutOfView()
@@ -94,6 +114,7 @@ public class FloorManager : MonoBehaviour
                 scaleX = this.floors[2].transform.localScale.x;
                 floors[0].transform.position = new Vector3(posX + scaleX + this.padding, 0, 0);
                 floors[0].GetComponent<FloorScript>().clearChildren();
+                this.floorCount++;
                 spawnTrapsOnFloor(0);
                 
                 break;
@@ -103,7 +124,7 @@ public class FloorManager : MonoBehaviour
                 floors[1].transform.position = new Vector3(posX + scaleX + this.padding, 0, 0);
                 floors[1].GetComponent<FloorScript>().clearChildren();
                 spawnTrapsOnFloor(1);
-
+                this.floorCount++;
                 break;
             case 2:
                 posX = this.floors[1].transform.position.x;
@@ -111,6 +132,7 @@ public class FloorManager : MonoBehaviour
                 floors[2].transform.position = new Vector3(posX + scaleX + this.padding, 0, 0);
                 floors[2].GetComponent<FloorScript>().clearChildren();
                 spawnTrapsOnFloor(2);
+                this.floorCount++;
 
                 break;
             default:

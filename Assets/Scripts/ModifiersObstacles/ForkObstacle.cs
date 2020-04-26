@@ -5,9 +5,11 @@ using UnityEngine;
 public class ForkObstacle : Obstacle
 {
     // Start is called before the first frame update
-
+    Vector3 startPos;
+    private bool needsToReset = false;
     public override void Start()
     {
+        startPos = this.transform.position;
         this.gameObject.AddComponent<DeathModifier>();
         this.gameObject.AddComponent<GroundedModifier>();
         this.modifiers.Add(this.gameObject.GetComponent<DeathModifier>());        
@@ -16,11 +18,25 @@ public class ForkObstacle : Obstacle
 
     public void Update()
     {
-        if(GameObject.FindGameObjectWithTag("PLAYER").transform.position.x > this.transform.position.x - this.transform.localScale.x)
+        if(GameObject.FindGameObjectWithTag("PLAYER").transform.position.x > this.transform.position.x - this.transform.localScale.x && !needsToReset)
         {
             this.gameObject.GetComponent<Rigidbody>().useGravity = true;
             this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0f, -0.10f, 0f), ForceMode.Impulse);
         }
+        if (needsToReset)
+        {
+            moveUpToTop();
+        }
+    }
+
+    public void moveUpToTop()
+    {
+        float s = 2 * Time.deltaTime;
+        if(s + this.transform.position.y > startPos.y)
+        {
+            needsToReset = false;
+        }
+        this.transform.position = new Vector3(this.transform.position.x, this.transform.position.y + s, this.transform.position.z);
     }
 
     public override void AdditionalEffects()
@@ -36,6 +52,12 @@ public class ForkObstacle : Obstacle
         {
             modifiers[1].activate();
             modifiers[1].isAcivated = true;
+        }
+
+        if(collision.gameObject.tag == "FLOOR")
+        {
+            this.needsToReset = true;
+            GetComponent<Rigidbody>().useGravity = false;
         }
     
         

@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 8168674458226185405}
   - component: {fileID: 866926010370616971}
   - component: {fileID: 6862212561985868402}
+  - component: {fileID: 479746886}
+  - component: {fileID: 479746887}
   m_Layer: 0
   m_Name: apple
-  m_TagString: Untagged
+  m_TagString: COLLECT
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,7 +27,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5118252994235082414}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -4.506161, y: 0.34843946, z: 1.6439282}
   m_LocalScale: {x: 0.2835679, y: 0.2835679, z: 0.2835679}
   m_Children: []
@@ -79,3 +81,31 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!135 &479746886
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5118252994235082414}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 1.2287691
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &479746887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5118252994235082414}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5f31a7a84e10b43bf8c717da7b96d2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cheese: {fileID: 3472095609566349740, guid: 255af1812a654df42a32d0865f01544f, type: 3}
+  meat: {fileID: 4219374850556037955, guid: b098851edf5afae45858e30248732407, type: 3}
+  apple: {fileID: 5118252994235082414}

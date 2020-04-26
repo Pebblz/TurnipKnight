@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2500321460276314015}
   - component: {fileID: 893131048}
   - component: {fileID: 893131049}
+  - component: {fileID: 1790802532496615026}
   m_Layer: 0
   m_Name: meat
   m_TagString: Untagged
@@ -110,3 +111,19 @@ MonoBehaviour:
   meat: {fileID: 4219374850556037955}
   apple: {fileID: 5118252994235082414, guid: 29cac25b867537c40b8383378385d9ca, type: 3}
   swapped: 0
+--- !u!111 &1790802532496615026
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4219374850556037955}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: d02bcbfa63ef8a8499e2b677eaf077f1, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: d02bcbfa63ef8a8499e2b677eaf077f1, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0

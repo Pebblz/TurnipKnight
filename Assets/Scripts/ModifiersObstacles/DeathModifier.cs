@@ -13,7 +13,7 @@ public class DeathModifier : PlayerModifier
     public override void activate()
     {
         GameObject player = this.GetPlayer();        
-        player.GetComponent<PlayerScript>().dead = true;
+        player.GetComponent<PlayerScript>().dead = true;        
     }
 
     protected override void deactivate()

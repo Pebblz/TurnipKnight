@@ -16,7 +16,7 @@ public class BouncyModifier : PlayerModifier
         Vector3 bounceForce = new Vector3(0f, this.bounce, 0f);
         Player.GetComponent<PlayerScript>().rigidbody.AddForce(bounceForce, ForceMode.Impulse);
         Player.GetComponent<PlayerScript>().grounded = false;
-
+        Player.GetComponent<PlayerScript>().anim.SetBool("jump", true);
     }
 
 

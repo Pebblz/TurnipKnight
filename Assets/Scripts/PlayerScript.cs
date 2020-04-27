@@ -23,7 +23,7 @@ public class PlayerScript : MonoBehaviour
     private float defaultSuperBoostTimer;
     public AudioClip scoreSound;
     public AudioClip deathSound;
-    private Animator anim;
+    public Animator anim;
     
     // Start is called before the first frame update
     void Start()

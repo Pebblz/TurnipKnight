@@ -210,6 +210,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6758743458346122391}
+  - component: {fileID: -115244858741317666}
   m_Layer: 0
   m_Name: wall
   m_TagString: KILLBOX
@@ -234,3 +235,15 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
+--- !u!114 &-115244858741317666
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7750897841637281412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe79b66ebf4d57c45b802a585ae2df4f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

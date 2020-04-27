@@ -98,7 +98,7 @@ public class FloorScript : MonoBehaviour
 
     public void clearChildren()
     {
-        for(int i = 0; i < traps.Count; i++)
+         for(int i = 0; i < traps.Count; i++)
         {
             Destroy(traps[i]);
        

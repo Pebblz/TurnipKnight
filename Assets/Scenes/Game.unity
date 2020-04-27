@@ -818,6 +818,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloorManager
       objectReference: {fileID: 0}
+    - target: {fileID: 4705100542343237254, guid: c00d2a5b82c6cda48b738443b0b23710,
+        type: 3}
+      propertyPath: visibleTrapSpawnLocations
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4705100542343237255, guid: c00d2a5b82c6cda48b738443b0b23710,
         type: 3}
       propertyPath: m_LocalPosition.x

@@ -16,6 +16,7 @@ public class FloorScript : MonoBehaviour
     private GameObject[] resources;
     public float padding;
     public List<GameObject> segs = new List<GameObject>();
+    public GameObject wall;
 
 
     private void Start()
@@ -61,6 +62,7 @@ public class FloorScript : MonoBehaviour
             var trapPrefab = randomTrapsList[Random.Range(0, randomTrapsList.Count)];
             var trapToLoad = Instantiate(trapPrefab);
             trapToLoad.transform.position = new Vector3(child.transform.position.x, this.transform.position.y, 0);
+            Instantiate(wall, new Vector3(child.transform.position.x, -5, 3), transform.rotation);
           
             traps.Add(trapToLoad);
             count++;
@@ -73,8 +75,9 @@ public class FloorScript : MonoBehaviour
         for(int i = 0; i < traps.Count; i++)
         {
             Destroy(traps[i]);
+            
         }
-
+        ////Destroy(wall);
         traps.Clear();
     }
 

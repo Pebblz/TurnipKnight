@@ -765,6 +765,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5687264863528850850, guid: 6357ef22a9e4099458076c5c1e39ea07,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2756253
+      objectReference: {fileID: 0}
+    - target: {fileID: 5687264863528850850, guid: 6357ef22a9e4099458076c5c1e39ea07,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1911343
+      objectReference: {fileID: 0}
+    - target: {fileID: 5687264863528850850, guid: 6357ef22a9e4099458076c5c1e39ea07,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2756253
+      objectReference: {fileID: 0}
     - target: {fileID: 5687264863528850854, guid: 6357ef22a9e4099458076c5c1e39ea07,
         type: 3}
       propertyPath: bounceForce

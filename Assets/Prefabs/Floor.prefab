@@ -111,3 +111,4 @@ MonoBehaviour:
   randomTrapsList: []
   padding: 0
   segs: []
+  wall: {fileID: 7750897841637281412, guid: 302b91944426c0046aa3b998ad2eb50d, type: 3}

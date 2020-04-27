@@ -41,20 +41,23 @@ public class FloorManager : MonoBehaviour
         usedHardLayouts = new List<GameObject>(hardLayouts);
         floors = new GameObject[3];
         floors[0] = Instantiate(floorPrefab);
-        floors[0].transform.position = new Vector3(0, 0, 0);
+        floors[0].transform.position = new Vector3(0, -2, 0);
         floors[1] = Instantiate(floorPrefab);
-        floors[1].transform.position = new Vector3(floors[0].transform.position.x + floors[0].transform.localScale.x + padding, 0, 0);
+        float pos = floors[0].transform.position.x + floors[0].GetComponent<FloorScript>().getBigOlLength() + padding;
+        floors[1].transform.position = new Vector3(pos, -2, 0);
         floors[2] = Instantiate(floorPrefab);
-        floors[2].transform.position = new Vector3(floors[1].transform.position.x + floors[1].transform.localScale.x + padding, 0, 0);
+        floors[2].transform.position = new Vector3(floors[1].transform.position.x + floors[1].GetComponent<FloorScript>().getBigOlLength() + padding, - 2, 0);
         for (int i = 0; i < floors.Length; i++)
         {
 
             for(int j = 0; j < segCount; j++ )
             {
+                float segLength = floors[i].GetComponent<FloorScript>().getBigOlLength() / 3f;
                 GameObject empty = (visibleTrapSpawnLocations) ? GameObject.CreatePrimitive(PrimitiveType.Sphere) : new GameObject();
                 floors[i].GetComponent<FloorScript>().segs.Add(empty);
+                floors[i].GetComponent<FloorScript>().segs[j].transform.position = new Vector3(0, 800, -segLength + this.transform.position.x + segLength * j);
                 floors[i].GetComponent<FloorScript>().segs[j].transform.parent = floors[i].GetComponent<FloorScript>().transform;
-                floors[i].GetComponent<FloorScript>().segs[j].transform.localPosition = new Vector3(-0.33f  +  0.33f * j, 1, 0);
+                floors[i].GetComponent<FloorScript>().segs[j].transform.localPosition = new Vector3(0, 800f, 650f - 650f * j);
             }
 
             spawnTrapsOnFloor(i);
@@ -162,13 +165,13 @@ public class FloorManager : MonoBehaviour
     {
         float posX; 
         float scaleX;
-        switch (floorIdx)
+         switch (floorIdx)
         {
             
             case 0:
                 posX = this.floors[2].transform.position.x;
-                scaleX = this.floors[2].transform.localScale.x;
-                floors[0].transform.position = new Vector3(posX + scaleX + this.padding, 0, 0);
+                scaleX = this.floors[2].GetComponent<FloorScript>().getBigOlLength();
+                floors[0].transform.position = new Vector3(posX + scaleX + this.padding, -2, 0);
                 floors[0].GetComponent<FloorScript>().clearChildren();
                 floors[0].GetComponent<FloorScript>().randomTrapsList.Clear();
                 this.floorCount++;
@@ -177,8 +180,8 @@ public class FloorManager : MonoBehaviour
                 break;
             case 1:   
                 posX = this.floors[0].transform.position.x;
-                scaleX = this.floors[0].transform.localScale.x;
-                floors[1].transform.position = new Vector3(posX + scaleX + this.padding, 0, 0);
+                scaleX = this.floors[0].GetComponent<FloorScript>().getBigOlLength();
+                floors[1].transform.position = new Vector3(posX + scaleX + this.padding, -2, 0);
                 floors[1].GetComponent<FloorScript>().clearChildren();
                 floors[1].GetComponent<FloorScript>().randomTrapsList.Clear();
                 spawnTrapsOnFloor(1);
@@ -186,8 +189,8 @@ public class FloorManager : MonoBehaviour
                 break;
             case 2:
                 posX = this.floors[1].transform.position.x;
-                scaleX = this.floors[1].transform.localScale.x;
-                floors[2].transform.position = new Vector3(posX + scaleX + this.padding, 0, 0);
+                scaleX = this.floors[1].GetComponent<FloorScript>().getBigOlLength();
+                floors[2].transform.position = new Vector3(posX + scaleX + this.padding, -2, 0);
                 floors[2].GetComponent<FloorScript>().clearChildren();
                 floors[2].GetComponent<FloorScript>().randomTrapsList.Clear();
                 spawnTrapsOnFloor(2);

@@ -53,7 +53,17 @@ public class FloorScript : MonoBehaviour
 
     }
 
+    public float getBigOlLength()
 
+    {
+
+        Transform child1 = transform.GetChild(0);
+
+        Transform child2 = transform.GetChild(1);
+
+        return Mathf.Abs(child1.position.x - child2.position.x);
+
+    }
 
     public void LoadTraps()
     {

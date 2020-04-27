@@ -102,9 +102,11 @@ public class FloorScript : MonoBehaviour
         {
             Destroy(traps[i]);
        
-            
+
+        }
+        for(int i = 0; i < wallList.Count; i++)
+        {
             Destroy(wallList[i]);
-            Destroy(wallList2[i]);
         }
 
         

@@ -22,7 +22,11 @@ public class CollectableObstacle : Obstacle
         {
             foodDecider();
         }
+
+        
+        
     }
+
 
 
     public void foodDecider()

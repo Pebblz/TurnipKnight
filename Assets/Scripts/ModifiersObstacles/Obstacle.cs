@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class Obstacle : MonoBehaviour
 {
     protected List<PlayerModifier> modifiers = new List<PlayerModifier>();
+    public GameObject player;
     public abstract void Start();
 
     /// <summary>
@@ -13,6 +14,17 @@ public abstract class Obstacle : MonoBehaviour
     public virtual void AdditionalEffects() 
     {
         return;
+    }
+
+    public void Update()
+    {
+        player = GameObject.FindGameObjectWithTag("PLAYER");
+
+        if (this.transform.position.x <= Screen.width + player.transform.position.x)
+        {
+            ///Destroy(this.gameObject);
+            Debug.Log("owie ow");
+        }
     }
 
 

@@ -40,7 +40,7 @@ public class PlayerScript : MonoBehaviour
         if (!isDead())
         {
 
-            transform.Translate(new Vector3(speed * Time.deltaTime, 0f, 0f));
+            transform.Translate(new Vector3(-speed * Time.deltaTime, 0f, 0f));
 
 
             if (isTouched() && grounded)

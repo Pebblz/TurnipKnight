@@ -17,7 +17,7 @@ public class ForkObstacle : Obstacle
         this.modifiers.Add(this.gameObject.GetComponent<GroundedModifier>());
     }
 
-    public void Update()
+    public override void Update()
     {
         if(GameObject.FindGameObjectWithTag("PLAYER").transform.position.x > this.transform.position.x - this.transform.localScale.x && !needsToReset && !fallen)
         {
@@ -31,6 +31,7 @@ public class ForkObstacle : Obstacle
         {
             moveUpToTop();
         }
+        base.Update();
     }
 
     public void moveUpToTop()

@@ -16,13 +16,13 @@ public abstract class Obstacle : MonoBehaviour
         return;
     }
 
-    public void Update()
+    public virtual void Update()
     {
         player = GameObject.FindGameObjectWithTag("PLAYER");
 
-        if (this.transform.position.x <= Screen.width + player.transform.position.x)
+        if (this.transform.position.x <=  player.transform.position.x - Screen.width)
         {
-            ///Destroy(this.gameObject);
+            Destroy(this.gameObject);
         }
     }
 

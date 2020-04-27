@@ -14,6 +14,7 @@ public class PlayerScript : MonoBehaviour
     public float defaultSpeed;
     public Rigidbody rigidbody;
     public float timer;
+    public float jumpTimer;
     private float timerStartValue;
     public float accel;
     public float capSpeed;
@@ -22,6 +23,7 @@ public class PlayerScript : MonoBehaviour
     private float defaultSuperBoostTimer;
     public AudioClip scoreSound;
     public AudioClip deathSound;
+    private Animator anim;
     
     // Start is called before the first frame update
     void Start()
@@ -32,6 +34,8 @@ public class PlayerScript : MonoBehaviour
         timerStartValue = timer;
         capSpeed = MaxSpeed + 10;
         defaultSuperBoostTimer = fixSuperBoostTimer;
+        anim = GetComponent<Animator>();
+        jumpTimer = 2f;
     }
 
     // Update is called once per frame
@@ -46,12 +50,11 @@ public class PlayerScript : MonoBehaviour
             if (isTouched() && grounded)
             {
                 jump();
-
+                
 
             }
             if (Input.GetKeyDown(KeyCode.Space) && grounded)
             {
-
                 jump();
             }
 
@@ -88,11 +91,17 @@ public class PlayerScript : MonoBehaviour
                 dead = true;
                 gameObject.GetComponent<Rigidbody>().isKinematic = true;
             }
+
+            if (grounded)
+            {
+                anim.SetBool("jump", false);
+            }
         }
-        
+
 
         else
         {
+            anim.SetBool("death", true);
             GameObject.Find("Main Camera").GetComponent<CameraScript>().positionBias = 0;
             GameObject.Find("ScoreText").GetComponent<Text>().text = "Score: " + score;
             GameObject.Find("GameOverCanvas").GetComponent<Canvas>().enabled = true;
@@ -118,6 +127,9 @@ public class PlayerScript : MonoBehaviour
     {
         rigidbody.AddForce(new Vector3(0f, 2, 0f), ForceMode.Impulse);
         grounded = false;
+        anim.SetBool("jump", true);
+        
+
     }
 
     private void OnCollisionEnter(Collision collision)

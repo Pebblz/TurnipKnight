@@ -1977,7 +1977,7 @@ PrefabInstance:
     - target: {fileID: 1449353243774933892, guid: 41296cf8dd8e05f44ae2fe4879125b3d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.45
+      value: 0.26
       objectReference: {fileID: 0}
     - target: {fileID: 1449353243774933892, guid: 41296cf8dd8e05f44ae2fe4879125b3d,
         type: 3}
@@ -2682,7 +2682,7 @@ PrefabInstance:
     - target: {fileID: 1449353243774933892, guid: 41296cf8dd8e05f44ae2fe4879125b3d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.47
+      value: 0.34
       objectReference: {fileID: 0}
     - target: {fileID: 1449353243774933892, guid: 41296cf8dd8e05f44ae2fe4879125b3d,
         type: 3}
@@ -2734,7 +2734,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: JelloTrap
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3264010824929695372, guid: 41296cf8dd8e05f44ae2fe4879125b3d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 41296cf8dd8e05f44ae2fe4879125b3d, type: 3}
 --- !u!4 &6590356058866740430 stripped
 Transform:
@@ -3357,7 +3358,7 @@ PrefabInstance:
     - target: {fileID: 2019400409347936082, guid: 420fda42632956f448d76f2c5569b02b,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2019400409347936082, guid: 420fda42632956f448d76f2c5569b02b,
         type: 3}

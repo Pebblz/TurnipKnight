@@ -106,7 +106,8 @@ public class PlayerScript : MonoBehaviour
 
             if (deathTimer <= 0 || gameObject.transform.position.y <= -10)
             {
-                GameObject.Find("Main Camera").GetComponent<CameraScript>().positionBias = 0;
+                GameObject.Find("Main Camera").GetComponent<CameraScript>().positionBiasX = 0;
+                
                 GameObject.Find("ScoreText").GetComponent<Text>().text = "Score: " + score;
                 GameObject.Find("GameOverCanvas").GetComponent<Canvas>().enabled = true;
             }

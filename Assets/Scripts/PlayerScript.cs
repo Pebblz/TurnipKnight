@@ -14,7 +14,7 @@ public class PlayerScript : MonoBehaviour
     public float defaultSpeed;
     public Rigidbody rigidbody;
     public float timer;
-    public float jumpTimer;
+    public float deathTimer;
     private float timerStartValue;
     public float accel;
     public float capSpeed;
@@ -35,7 +35,7 @@ public class PlayerScript : MonoBehaviour
         capSpeed = MaxSpeed + 10;
         defaultSuperBoostTimer = fixSuperBoostTimer;
         anim = GetComponent<Animator>();
-        jumpTimer = 2f;
+        deathTimer = 1f;
     }
 
     // Update is called once per frame
@@ -101,11 +101,15 @@ public class PlayerScript : MonoBehaviour
 
         else
         {
+            deathTimer -= Time.deltaTime;
             anim.SetBool("death", true);
-            GameObject.Find("Main Camera").GetComponent<CameraScript>().positionBias = 0;
-            GameObject.Find("ScoreText").GetComponent<Text>().text = "Score: " + score;
-            GameObject.Find("GameOverCanvas").GetComponent<Canvas>().enabled = true;
-           
+
+            if (deathTimer <= 0 || gameObject.transform.position.y <= -10)
+            {
+                GameObject.Find("Main Camera").GetComponent<CameraScript>().positionBias = 0;
+                GameObject.Find("ScoreText").GetComponent<Text>().text = "Score: " + score;
+                GameObject.Find("GameOverCanvas").GetComponent<Canvas>().enabled = true;
+            }
 
             //play death animation
             //freeze posion or turn off gravity after player falls off bottom of screen 

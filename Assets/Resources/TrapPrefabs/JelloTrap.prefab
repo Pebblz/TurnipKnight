@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4213870397747567947}
   - component: {fileID: 8453285938173823306}
   - component: {fileID: -8382456316891291805}
+  - component: {fileID: -3264010824929695372}
   m_Layer: 0
   m_Name: JelloTrap
   m_TagString: Untagged
@@ -107,3 +108,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 201.81683, y: 85.572136, z: 201.81683}
   m_Center: {x: 0, y: 45.284245, z: 0}
+--- !u!95 &-3264010824929695372
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2469796412034197911}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: 9b2a029c5b1a43a41b72768dcda9e6ca, type: 3}
+  m_Controller: {fileID: 9100000, guid: 84bb71c72c7390e488dbc7a0da3ea549, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

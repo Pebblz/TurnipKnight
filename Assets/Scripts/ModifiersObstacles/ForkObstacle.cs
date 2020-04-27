@@ -22,7 +22,7 @@ public class ForkObstacle : Obstacle
         if(GameObject.FindGameObjectWithTag("PLAYER").transform.position.x > this.transform.position.x - this.transform.localScale.x && !needsToReset && !fallen)
         {
             this.gameObject.GetComponent<Rigidbody>().useGravity = true;
-            this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0f, -0.10f, 0f), ForceMode.Impulse);
+            this.gameObject.GetComponent<Rigidbody>().AddForce(new Vector3(0f, -5f, 0f), ForceMode.Impulse);
             fallen = true;
         }
 

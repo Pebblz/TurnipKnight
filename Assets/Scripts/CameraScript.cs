@@ -31,6 +31,12 @@ public class CameraScript : MonoBehaviour
             this.transform.position = new Vector3(this.transform.position.x, lowerLimit, this.transform.position.z);
         }
         
+        else if(this.transform.position.y <= lowerLimit)
+        {
+            this.transform.position = new Vector3(this.transform.position.x, upperLimit, this.transform.position.z);
+
+        }
+
     }
 
 

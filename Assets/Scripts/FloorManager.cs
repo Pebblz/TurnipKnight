@@ -174,7 +174,7 @@ public class FloorManager : MonoBehaviour
                 spawnTrapsOnFloor(0);
                 
                 break;
-            case 1:
+            case 1:   
                 posX = this.floors[0].transform.position.x;
                 scaleX = this.floors[0].transform.localScale.x;
                 floors[1].transform.position = new Vector3(posX + scaleX + this.padding, 0, 0);

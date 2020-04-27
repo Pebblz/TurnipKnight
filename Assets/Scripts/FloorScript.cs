@@ -76,11 +76,8 @@ public class FloorScript : MonoBehaviour
         for(int i = 0; i < traps.Count; i++)
         {
             Destroy(traps[i]);
-            foreach(GameObject child in traps[i].transform)
-            {
-                Destroy(child.gameObject);
-            }
-            Destroy(traps[i].gameObject);
+       
+            
             Destroy(wallInstance);
         }
         

@@ -18,7 +18,9 @@ public class FloorScript : MonoBehaviour
     public List<GameObject> segs = new List<GameObject>();
     public GameObject wall;
     GameObject wallInstance;
+    GameObject wallInstance2;
     public List<GameObject> wallList = new List<GameObject>();
+
 
 
     private void Start()
@@ -84,7 +86,11 @@ public class FloorScript : MonoBehaviour
     {
         wallInstance = Instantiate(wall);
         wallInstance.transform.position = new Vector3(segs[1].transform.position.x, -5, 7);
+        wallInstance2 = Instantiate(wall);
+        wallInstance2.transform.position = new Vector3(segs[1].transform.position.x + 9, -5, 7);
+        wallInstance2.transform.localScale = new Vector3(2, 2, 3);
         wallList.Add(wallInstance);
+        wallList.Add(wallInstance2);
     }
 
 

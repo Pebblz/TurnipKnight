@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 8976929153327156091}
   m_Layer: 0
   m_Name: apple
-  m_TagString: KILLBOX
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -107,6 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db5f31a7a84e10b43bf8c717da7b96d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   cheese: {fileID: 3472095609566349740, guid: 255af1812a654df42a32d0865f01544f, type: 3}
   meat: {fileID: 4219374850556037955, guid: b098851edf5afae45858e30248732407, type: 3}
   apple: {fileID: 5118252994235082414}

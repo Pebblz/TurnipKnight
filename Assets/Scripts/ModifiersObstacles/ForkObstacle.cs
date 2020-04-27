@@ -47,7 +47,7 @@ public class ForkObstacle : Obstacle
     {
         GameManager.soundSource.pitch = Random.Range(0.8f, 1.2f);
         GameManager.soundSource.PlayOneShot(GameObject.Find("Player").GetComponent<PlayerScript>().deathSound);
-        Destroy(this.gameObject);
+        
     }
 
     public override void OnCollisionEnter(Collision collision)

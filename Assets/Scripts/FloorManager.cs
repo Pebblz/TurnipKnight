@@ -160,7 +160,7 @@ public class FloorManager : MonoBehaviour
 
     public void moveFloor(int floorIdx)
     {
-        float posX;
+        float posX; 
         float scaleX;
         switch (floorIdx)
         {

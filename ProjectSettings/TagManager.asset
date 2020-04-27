@@ -9,6 +9,7 @@ TagManager:
   - TRAP
   - COLLECT
   - BACKGROUND
+  - KILLBOX
   layers:
   - Default
   - TransparentFX

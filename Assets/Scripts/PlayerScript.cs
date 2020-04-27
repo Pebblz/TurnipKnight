@@ -130,7 +130,7 @@ public class PlayerScript : MonoBehaviour
 
     public void jump()
     {
-        rigidbody.AddForce(new Vector3(0f, 2, 0f), ForceMode.Impulse);
+        rigidbody.AddForce(new Vector3(0f, 3, 0f), ForceMode.Impulse);
         grounded = false;
         anim.SetBool("jump", true);
         

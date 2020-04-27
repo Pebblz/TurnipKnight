@@ -61,7 +61,6 @@ public class FloorManager : MonoBehaviour
                 floors[i].GetComponent<FloorScript>().segs[j].transform.localPosition = new Vector3(0, 420f + 10f, 650f - 650f * j);
             }
             floors[i].GetComponent<FloorScript>().LoadWalls();
-            floors[i].GetComponent<FloorScript>().LoadWallsredux();
             spawnTrapsOnFloor(i);
 
         }
@@ -92,8 +91,6 @@ public class FloorManager : MonoBehaviour
         }
         this.floors[floorIdx].GetComponent<FloorScript>().LoadTraps();
         this.floors[floorIdx].GetComponent<FloorScript>().LoadWalls();
-        //to close the gap
-        this.floors[floorIdx].GetComponent<FloorScript>().LoadWallsredux();
     }
 
     public GameObject getRandomTrap()

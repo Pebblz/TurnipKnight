@@ -19,8 +19,6 @@ public class FloorScript : MonoBehaviour
     public GameObject wall;
     GameObject wallInstance;
     public List<GameObject> wallList = new List<GameObject>();
-    GameObject wallInstance2;
-    public List<GameObject> wallList2 = new List<GameObject>();
 
 
     private void Start()
@@ -85,16 +83,10 @@ public class FloorScript : MonoBehaviour
     public void LoadWalls()
     {
         wallInstance = Instantiate(wall);
-        wallInstance.transform.position = new Vector3(segs[1].transform.position.x, -5, 3);
+        wallInstance.transform.position = new Vector3(segs[1].transform.position.x, -5, 5);
         wallList.Add(wallInstance);
     }
 
-    public void LoadWallsredux()
-    {
-        wallInstance2 = Instantiate(wall);
-        wallInstance2.transform.position = new Vector3(segs[1].transform.position.x + 7, -5, 3);
-        wallList2.Add(wallInstance2);
-    }
 
     public void clearChildren()
     {
@@ -107,6 +99,7 @@ public class FloorScript : MonoBehaviour
         for(int i = 0; i < wallList.Count; i++)
         {
             Destroy(wallList[i]);
+
         }
 
         

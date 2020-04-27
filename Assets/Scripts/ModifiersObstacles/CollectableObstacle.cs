@@ -49,6 +49,10 @@ public class CollectableObstacle : Obstacle
                 Instantiate(apple, transform.position, transform.rotation);
                 Destroy(gameObject);
                 break;
+            default:
+                Instantiate(meat, transform.position, transform.rotation);
+                Destroy(gameObject);
+                break;
         }
 
         swapped = true;

@@ -57,7 +57,7 @@ public class FloorManager : MonoBehaviour
                 floors[i].GetComponent<FloorScript>().segs.Add(empty);
                 floors[i].GetComponent<FloorScript>().segs[j].transform.position = new Vector3(0, 800, -segLength + this.transform.position.x + segLength * j);
                 floors[i].GetComponent<FloorScript>().segs[j].transform.parent = floors[i].GetComponent<FloorScript>().transform;
-                floors[i].GetComponent<FloorScript>().segs[j].transform.localPosition = new Vector3(0, 800f, 650f - 650f * j);
+                floors[i].GetComponent<FloorScript>().segs[j].transform.localPosition = new Vector3(0, 420f + 10f, 650f - 650f * j);
             }
 
             spawnTrapsOnFloor(i);

@@ -353,7 +353,7 @@ MonoBehaviour:
   defaultSpeed: 0
   rigidbody: {fileID: 0}
   timer: 30
-  jumpTimer: 0
+  deathTimer: 0
   accel: 0
   capSpeed: 20
   dead: 0
@@ -1068,22 +1068,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: FloorManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 4705100542343237254, guid: c00d2a5b82c6cda48b738443b0b23710,
-        type: 3}
-      propertyPath: visibleTrapSpawnLocations
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4705100542343237254, guid: c00d2a5b82c6cda48b738443b0b23710,
-        type: 3}
-      propertyPath: floorPrefab
-      value: 
-      objectReference: {fileID: 3014287675157039947, guid: 564d81943b0812e4d8fb3d5d69a1de8e,
-        type: 3}
-    - target: {fileID: 4705100542343237254, guid: c00d2a5b82c6cda48b738443b0b23710,
-        type: 3}
-      propertyPath: padding
-      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4705100542343237255, guid: c00d2a5b82c6cda48b738443b0b23710,
         type: 3}

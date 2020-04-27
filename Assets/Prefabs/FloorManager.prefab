@@ -43,12 +43,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: acf0180bd654a0a4aaeb7c97d786cc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorPrefab: {fileID: 2019400409347936082, guid: 420fda42632956f448d76f2c5569b02b,
+  easyLayouts: []
+  mediumLayouts: []
+  hardLayouts: []
+  usedEasyLayouts: []
+  usedMediumLayouts: []
+  usedHardLayouts: []
+  floorPrefab: {fileID: 3014287675157039947, guid: 564d81943b0812e4d8fb3d5d69a1de8e,
     type: 3}
-  trapPrefabs: []
-  layouts: []
-  visibleTrapSpawnLocations: 0
-  padding: 2
+  visibleTrapSpawnLocations: 1
+  padding: 4
   segCount: 3
   gameDifficulty: 0
   floorCount: 0

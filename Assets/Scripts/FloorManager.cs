@@ -5,11 +5,17 @@ using UnityEngine;
 
 public class FloorManager : MonoBehaviour
 {
+
+    public List<GameObject> easyLayouts;
+    public List<GameObject> mediumLayouts;
+    public List<GameObject> hardLayouts;
+    public List<GameObject> usedEasyLayouts;
+    public List<GameObject> usedMediumLayouts;
+    public List<GameObject> usedHardLayouts;
+
     // Start is called before the first frame update
     public GameObject floorPrefab;
-    public GameObject[] trapPrefabs;
     private GameObject[] floors;
-    public List<GameObject> layouts;
     public bool visibleTrapSpawnLocations = false;
     private bool starting;
 
@@ -27,9 +33,13 @@ public class FloorManager : MonoBehaviour
     void Start()
     {
         starting = true;
-        layouts = Resources.LoadAll<GameObject>("layouts").ToList<GameObject>();
+        easyLayouts = Resources.LoadAll<GameObject>(@"layouts\Easy").ToList<GameObject>();
+        mediumLayouts = Resources.LoadAll<GameObject>(@"layouts\Medium").ToList<GameObject>();
+        hardLayouts = Resources.LoadAll<GameObject>(@"layouts\Hard").ToList<GameObject>();
+        usedEasyLayouts = new List<GameObject>(easyLayouts);
+        usedMediumLayouts = new List<GameObject>(mediumLayouts);
+        usedHardLayouts = new List<GameObject>(hardLayouts);
         floors = new GameObject[3];
-        trapPrefabs = Resources.LoadAll<GameObject>("TrapPrefabs");
         floors[0] = Instantiate(floorPrefab);
         floors[0].transform.position = new Vector3(0, 0, 0);
         floors[1] = Instantiate(floorPrefab);
@@ -72,12 +82,58 @@ public class FloorManager : MonoBehaviour
         starting = false;
         for(int i = 0; i < segCount; i++)
         {
-            var randTrap = this.layouts[Random.Range(0, this.layouts.Count)];
+            var randTrap = getRandomTrap();
             this.floors[floorIdx].GetComponent<FloorScript>().randomTrapsList.Add(randTrap);
         }
         this.floors[floorIdx].GetComponent<FloorScript>().LoadTraps();
     }
 
+    public GameObject getRandomTrap()
+    {
+        if(this.usedEasyLayouts.Count <= 0)
+        {
+            usedEasyLayouts.AddRange(easyLayouts);
+        }
+        if (this.usedMediumLayouts.Count <= 0)
+        {
+            usedMediumLayouts.AddRange(mediumLayouts);
+        }
+        if (this.usedHardLayouts.Count <= 0)
+        {
+            usedHardLayouts.AddRange(hardLayouts);
+        }
+
+
+        GameObject trapToReturn = null;
+        switch (this.gameDifficulty)
+        {
+            case DIFFICULTY.EASY:
+                
+                int easyrand = Random.Range(0, this.usedEasyLayouts.Count);
+                trapToReturn = usedEasyLayouts[easyrand];
+                usedEasyLayouts.RemoveAt(easyrand);
+                break;
+
+            case DIFFICULTY.MEDIUM:
+                int medrand = Random.Range(0, this.usedMediumLayouts.Count);
+                trapToReturn = usedMediumLayouts[medrand];
+                usedMediumLayouts.RemoveAt(medrand);
+                break;
+
+            case DIFFICULTY.HARD:
+                int hardRange = Random.Range(0, this.usedHardLayouts.Count);
+                trapToReturn = usedHardLayouts[hardRange];
+                usedHardLayouts.RemoveAt(hardRange);
+                break;
+            
+            default:
+                int defaultrand = Random.Range(0, this.usedEasyLayouts.Count);
+                trapToReturn = usedEasyLayouts[defaultrand];
+                usedEasyLayouts.RemoveAt(defaultrand);
+                break;
+        }
+        return trapToReturn;
+    }
 
     // Update is called once per frame
     void Update()

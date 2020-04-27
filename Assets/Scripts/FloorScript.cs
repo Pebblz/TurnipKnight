@@ -83,7 +83,7 @@ public class FloorScript : MonoBehaviour
     public void LoadWalls()
     {
         wallInstance = Instantiate(wall);
-        wallInstance.transform.position = new Vector3(segs[1].transform.position.x, -5, 5);
+        wallInstance.transform.position = new Vector3(segs[1].transform.position.x, -5, 7);
         wallList.Add(wallInstance);
     }
 

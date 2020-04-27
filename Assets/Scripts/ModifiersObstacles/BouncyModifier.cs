@@ -18,6 +18,11 @@ public class BouncyModifier : PlayerModifier
         Player.GetComponent<PlayerScript>().grounded = false;
         Player.GetComponent<PlayerScript>().anim.SetBool("jump", true);
         //GetComponent<Animator>().SetBool("jello", true);
+
+        if(Player.tag == "TITLE")
+        {
+            Player.GetComponent<TitlePlayer>().rigidbody.AddForce(bounceForce, ForceMode.Impulse);
+        }
     }
 
 

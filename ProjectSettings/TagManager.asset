@@ -11,6 +11,7 @@ TagManager:
   - BACKGROUND
   - KILLBOX
   - DIST
+  - TITLE
   layers:
   - Default
   - TransparentFX

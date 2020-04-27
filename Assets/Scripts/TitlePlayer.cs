@@ -6,6 +6,7 @@ public class TitlePlayer : MonoBehaviour
 {
     // Start is called before the first frame update
     public float speed;
+    public Rigidbody rigidbody;
     void Start()
     {
         speed = 2;

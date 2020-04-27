@@ -170,6 +170,7 @@ public class FloorManager : MonoBehaviour
                 scaleX = this.floors[2].transform.localScale.x;
                 floors[0].transform.position = new Vector3(posX + scaleX + this.padding, 0, 0);
                 floors[0].GetComponent<FloorScript>().clearChildren();
+                floors[0].GetComponent<FloorScript>().randomTrapsList.Clear();
                 this.floorCount++;
                 spawnTrapsOnFloor(0);
                 
@@ -179,6 +180,7 @@ public class FloorManager : MonoBehaviour
                 scaleX = this.floors[0].transform.localScale.x;
                 floors[1].transform.position = new Vector3(posX + scaleX + this.padding, 0, 0);
                 floors[1].GetComponent<FloorScript>().clearChildren();
+                floors[1].GetComponent<FloorScript>().randomTrapsList.Clear();
                 spawnTrapsOnFloor(1);
                 this.floorCount++;
                 break;
@@ -187,6 +189,7 @@ public class FloorManager : MonoBehaviour
                 scaleX = this.floors[1].transform.localScale.x;
                 floors[2].transform.position = new Vector3(posX + scaleX + this.padding, 0, 0);
                 floors[2].GetComponent<FloorScript>().clearChildren();
+                floors[2].GetComponent<FloorScript>().randomTrapsList.Clear();
                 spawnTrapsOnFloor(2);
                 this.floorCount++;
 

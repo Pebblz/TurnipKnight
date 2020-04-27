@@ -23,7 +23,6 @@ public abstract class Obstacle : MonoBehaviour
         if (this.transform.position.x <= Screen.width + player.transform.position.x)
         {
             ///Destroy(this.gameObject);
-            Debug.Log("owie ow");
         }
     }
 

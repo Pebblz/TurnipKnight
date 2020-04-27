@@ -89,6 +89,9 @@ public class FloorManager : MonoBehaviour
             this.floors[floorIdx].GetComponent<FloorScript>().randomTrapsList.Add(randTrap);
         }
         this.floors[floorIdx].GetComponent<FloorScript>().LoadTraps();
+        this.floors[floorIdx].GetComponent<FloorScript>().LoadWalls();
+        //to close the gap
+        this.floors[floorIdx].GetComponent<FloorScript>().LoadWallsredux();
     }
 
     public GameObject getRandomTrap()

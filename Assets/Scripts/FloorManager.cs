@@ -42,6 +42,7 @@ public class FloorManager : MonoBehaviour
         floors = new GameObject[3];
         floors[0] = Instantiate(floorPrefab);
         floors[0].transform.position = new Vector3(0, -2, 0);
+
         floors[1] = Instantiate(floorPrefab);
         float pos = floors[0].transform.position.x + floors[0].GetComponent<FloorScript>().getBigOlLength() + padding;
         floors[1].transform.position = new Vector3(pos, -2, 0);
@@ -59,7 +60,8 @@ public class FloorManager : MonoBehaviour
                 floors[i].GetComponent<FloorScript>().segs[j].transform.parent = floors[i].GetComponent<FloorScript>().transform;
                 floors[i].GetComponent<FloorScript>().segs[j].transform.localPosition = new Vector3(0, 420f + 10f, 650f - 650f * j);
             }
-
+            floors[i].GetComponent<FloorScript>().LoadWalls();
+            floors[i].GetComponent<FloorScript>().LoadWallsredux();
             spawnTrapsOnFloor(i);
 
         }

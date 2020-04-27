@@ -1738,7 +1738,8 @@ PrefabInstance:
       propertyPath: bounceForce
       value: 5
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -3264010824929695372, guid: 41296cf8dd8e05f44ae2fe4879125b3d, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 41296cf8dd8e05f44ae2fe4879125b3d, type: 3}
 --- !u!4 &3336441746836022856 stripped
 Transform:

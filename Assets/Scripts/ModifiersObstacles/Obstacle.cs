@@ -11,27 +11,30 @@ public abstract class Obstacle : MonoBehaviour
     /// <summary>
     /// Override this method to add additional effects to the object
     /// </summary>
-    public virtual void AdditionalEffects() 
+    public virtual void AdditionalEffects()
     {
         return;
     }
 
     public virtual void Update()
     {
-        player = GameObject.FindGameObjectWithTag("PLAYER");
-
-        if (this.transform.position.x <=  player.transform.position.x - Screen.width)
+        var cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Camera>();
+        Vector3 dist = cam.WorldToScreenPoint(this.transform.position);
+        if (dist.x < -1 * Screen.width)
         {
             Destroy(this.gameObject);
         }
+
+
+    
     }
 
 
     public virtual void OnTriggerEnter(Collider collision)
     {
-        if(collision.gameObject.tag == "PLAYER")
+        if (collision.gameObject.tag == "PLAYER")
         {
-             for(int i = 0; i < modifiers.Count; i++)
+            for (int i = 0; i < modifiers.Count; i++)
             {
                 modifiers[i].activate();
                 modifiers[i].isAcivated = true;

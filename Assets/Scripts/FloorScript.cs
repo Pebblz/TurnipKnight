@@ -19,13 +19,19 @@ public class FloorScript : MonoBehaviour
     public GameObject wall;
     GameObject wallInstance;
     GameObject wallInstance2;
+    private GameObject easyShield;
+    private GameObject medShield;
+    private GameObject hardShield;
+    public float sheildz = 6.9f;
     public List<GameObject> wallList = new List<GameObject>();
 
 
 
     private void Start()
     {
-    
+        easyShield = Resources.Load<GameObject>("Shields/shieldeasy");
+        medShield = Resources.Load<GameObject>("Shields/shieldmedium");
+        hardShield = Resources.Load<GameObject>("Shields/shieldmedium");
 
     }
     void Update()
@@ -93,6 +99,29 @@ public class FloorScript : MonoBehaviour
         wallList.Add(wallInstance2);
     }
 
+    public void spawnShield()
+    {
+        GameObject shieldToSpawn = null;
+        if(easyShield == null || medShield == null || hardShield == null)
+        {
+            return;
+        }
+        switch (FloorManager.gameDifficulty)
+        {
+            case FloorManager.DIFFICULTY.EASY:
+                shieldToSpawn = Instantiate(easyShield);
+                break;
+            case FloorManager.DIFFICULTY.MEDIUM:
+                shieldToSpawn = Instantiate(medShield);
+                break;
+            case FloorManager.DIFFICULTY.HARD:
+                shieldToSpawn = Instantiate(hardShield);
+                break;
+        }
+        float posX = this.transform.position.x - this.getBigOlLength()/2;
+        shieldToSpawn.transform.position = new Vector3(posX -1f, 8, sheildz);
+
+    }
 
     public void clearChildren()
     {

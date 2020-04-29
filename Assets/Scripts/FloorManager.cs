@@ -21,7 +21,7 @@ public class FloorManager : MonoBehaviour
 
     public float padding = 2f;
     public int segCount = 3;
-    public DIFFICULTY gameDifficulty = DIFFICULTY.EASY;
+    public static DIFFICULTY gameDifficulty = DIFFICULTY.EASY;
     public int floorCount = 0;
     public enum DIFFICULTY
     {
@@ -71,10 +71,10 @@ public class FloorManager : MonoBehaviour
     {
         if(this.floorCount >= 10)
         {
-            this.gameDifficulty = DIFFICULTY.HARD;
+            gameDifficulty = DIFFICULTY.HARD;
         } else if(this.floorCount >= 5)
         {
-            this.gameDifficulty = DIFFICULTY.MEDIUM;
+            gameDifficulty = DIFFICULTY.MEDIUM;
         }
     }
     public void spawnTrapsOnFloor(int floorIdx)
@@ -91,6 +91,7 @@ public class FloorManager : MonoBehaviour
         }
         this.floors[floorIdx].GetComponent<FloorScript>().LoadTraps();
         this.floors[floorIdx].GetComponent<FloorScript>().LoadWalls();
+        this.floors[floorIdx].GetComponent<FloorScript>().spawnShield();
     }
 
     public GameObject getRandomTrap()
@@ -110,7 +111,7 @@ public class FloorManager : MonoBehaviour
 
 
         GameObject trapToReturn = null;
-        switch (this.gameDifficulty)
+        switch (gameDifficulty)
         {
             case DIFFICULTY.EASY:
                 

@@ -12,6 +12,7 @@ TagManager:
   - KILLBOX
   - DIST
   - TITLE
+  - WALL
   layers:
   - Default
   - TransparentFX

@@ -32,6 +32,7 @@ public class FloorManager : MonoBehaviour
 
     void Start()
     {
+        gameDifficulty = DIFFICULTY.EASY;
         starting = true;
         easyLayouts = Resources.LoadAll<GameObject>(@"layouts\Easy").ToList<GameObject>();
         mediumLayouts = Resources.LoadAll<GameObject>(@"layouts\Medium").ToList<GameObject>();

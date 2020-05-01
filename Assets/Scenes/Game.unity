@@ -1837,7 +1837,7 @@ MonoBehaviour:
   positionBiasX: 20
   positionBiasY: 25
   lowerLimit: 8
-  upperLimit: 20
+  upperLimit: 10
 --- !u!114 &1195252117
 MonoBehaviour:
   m_ObjectHideFlags: 0

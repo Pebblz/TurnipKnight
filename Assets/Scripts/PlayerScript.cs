@@ -24,7 +24,8 @@ public class PlayerScript : MonoBehaviour
     public AudioClip scoreSound;
     public AudioClip deathSound;
     public Animator anim;
-    
+    public bool checkedHighScore = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -107,7 +108,18 @@ public class PlayerScript : MonoBehaviour
             if (deathTimer <= 0 || gameObject.transform.position.y <= -10)
             {
                 GameObject.Find("Main Camera").GetComponent<CameraScript>().positionBiasX = 0;
-                
+
+                if(!checkedHighScore)
+                {
+                    int highScore = GameManager.GetHighScore();
+                    if (score > highScore)
+                    {
+                        Debug.Log("new Highscore");
+                        GameManager.SaveHighScore(score);
+                        checkedHighScore = true;
+                    }
+                }
+        
                 GameObject.Find("ScoreText").GetComponent<Text>().text = "Score: " + score;
                 GameObject.Find("GameOverCanvas").GetComponent<Canvas>().enabled = true;
             }

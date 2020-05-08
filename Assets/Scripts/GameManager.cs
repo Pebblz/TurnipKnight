@@ -28,7 +28,9 @@ public class GameManager : MonoBehaviour
     {
         int highscore = 0;
         string filePath = GetScoreFilePath(Application.platform);
+
         filePath = Path.Combine(filePath, highScoreFileParts[0], highScoreFileParts[1]);
+        Debug.Log("File Path: " + filePath);
         try
         {
             using (BinaryReader br = new BinaryReader(File.Open(filePath, FileMode.Open)))
@@ -37,6 +39,7 @@ public class GameManager : MonoBehaviour
             }
         }catch(Exception exc)
         {
+            Debug.Log("Error Getting HighScore");
             Debug.Log(exc.Message);
         } 
   
@@ -55,13 +58,15 @@ public class GameManager : MonoBehaviour
                 Directory.CreateDirectory(filepath);
             }
             filepath = Path.Combine(filepath, highScoreFileParts[1]);
+            Debug.Log("File Path: " + filepath);
             using (BinaryWriter wr = new BinaryWriter(File.Open(filepath, FileMode.OpenOrCreate)))
             {
                 wr.Write(highscore);
             }
-        } catch(IOException ex)
+        } catch(IOException exc)
         {
-
+            Debug.Log("Error Saving High Score");
+            Debug.Log(exc.Message);
         }
     }
 
@@ -74,7 +79,7 @@ public class GameManager : MonoBehaviour
         switch (platform)
         {
             case RuntimePlatform.Android:
-                return GetAndroidExternalDir();
+                return GetAndroidInternalDir();
             case RuntimePlatform.WindowsEditor:
                 return GetWindowsExternalDir();
             default:
@@ -88,49 +93,35 @@ public class GameManager : MonoBehaviour
        return Directory.GetCurrentDirectory();
     }
 
-    private static string GetAndroidExternalDir()
-    {
-        using (AndroidJavaClass unityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+
+    //NOTE: This GetExternalStorageDirectory() has been deprecated in version Android 10;
+    private static string GetAndroidExternalDirOld(){
+        return "";
+
+    }
+
+    public static string GetAndroidInternalDir(){
+        string path = "";
+        
+        if (Application.platform == RuntimePlatform.Android)
         {
-            using (AndroidJavaObject context = unityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
+            try
             {
-                AndroidJavaObject[] externalDirs = context.Call<AndroidJavaObject[]>("getExternalFilesDirs");
-                AndroidJavaObject emulated = null;
-                AndroidJavaObject sdCard = null;
-
-                for (int i = 0; i < externalDirs.Length; i++)
+            using (AndroidJavaClass ajc = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+            {
+                using (AndroidJavaObject ajo = ajc.GetStatic<AndroidJavaObject>("currentActivity"))
                 {
-                    AndroidJavaObject directory = externalDirs[i];
-                    using (AndroidJavaClass env = new AndroidJavaClass("android.os.Environment"))
-                    {
-                        bool isRemovable = env.CallStatic<bool>("isExternalStorageRemovable", directory);
-                        bool isEmulated = env.CallStatic<bool>("isExternalStorageEmulated", directory);
-
-                        if (isEmulated)
-                        {
-                            emulated = directory;
-                        }
-                        else if (isRemovable && isEmulated == false)
-                        {
-                            sdCard = directory;
-                        }
-                    }
+                    path = ajo.Call<AndroidJavaObject>("getCacheDir").Call<string>("getAbsolutePath");
                 }
-
-                string path = "";
-                if (sdCard != null)
-                {
-                    path = sdCard.Call<string>("getAbsolutePath");
-                    
-                }
-                else
-                {
-                    path =  emulated.Call<string>("getAbsolutePath");
-                }
-
-                return path;
+            }
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("Error fetching native Android internal storage dir: " + e.Message);
             }
         }
+        return path;
     }
+    
     #endregion
 }

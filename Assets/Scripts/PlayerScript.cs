@@ -26,6 +26,8 @@ public class PlayerScript : MonoBehaviour
     public Animator anim;
     public bool checkedHighScore = false;
 
+    private int highScore = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -108,19 +110,19 @@ public class PlayerScript : MonoBehaviour
             if (deathTimer <= 0 || gameObject.transform.position.y <= -10)
             {
                 GameObject.Find("Main Camera").GetComponent<CameraScript>().positionBiasX = 0;
-
                 if(!checkedHighScore)
                 {
-                    int highScore = GameManager.GetHighScore();
+                    highScore = GameManager.GetHighScore();
                     if (score > highScore)
                     {
                         Debug.Log("new Highscore");
                         GameManager.SaveHighScore(score);
+                        highScore = score;
                         checkedHighScore = true;
                     }
                 }
         
-                GameObject.Find("ScoreText").GetComponent<Text>().text = "Score: " + score;
+                GameObject.Find("ScoreText").GetComponent<Text>().text = "Score: " + score + "\nHighscore: " + highScore;
                 GameObject.Find("GameOverCanvas").GetComponent<Canvas>().enabled = true;
             }
 

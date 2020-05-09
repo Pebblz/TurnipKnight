@@ -1271,7 +1271,7 @@ GameObject:
   - component: {fileID: 1029372735}
   - component: {fileID: 1029372734}
   m_Layer: 5
-  m_Name: Credits (1)
+  m_Name: Donate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1294,7 +1294,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 170, y: -150}
+  m_AnchoredPosition: {x: 0, y: -120}
   m_SizeDelta: {x: 202.0391, y: 45.38376}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1029372734
@@ -1341,8 +1341,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 321547376}
-        m_MethodName: LoadScene
-        m_Mode: 3
+        m_MethodName: OpenURL
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -1559,7 +1559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 170, y: -150}
+  m_AnchoredPosition: {x: 0, y: -60}
   m_SizeDelta: {x: 202.0391, y: 45.38376}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1179672468
@@ -1689,7 +1689,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -199.7, y: -150}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 202.0391, y: 45.38376}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1187846067
@@ -2756,7 +2756,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Credits
+  m_Text: Donate
 --- !u!222 &2068008706
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -59,4 +59,5 @@ sysinfo.txt
 crashlytics-build.properties
 
 #ignore turnip knight folder
-*/TurnipKnight/
+TurnipKnight/
+*.bin

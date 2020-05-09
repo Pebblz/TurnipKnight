@@ -30,7 +30,7 @@ public class GameManager : MonoBehaviour
         string filePath = GetScoreFilePath(Application.platform);
 
         filePath = Path.Combine(filePath, highScoreFileParts[0], highScoreFileParts[1]);
-        Debug.Log("File Path: " + filePath);
+    
         try
         {
             using (BinaryReader br = new BinaryReader(File.Open(filePath, FileMode.Open)))
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
                 Directory.CreateDirectory(filepath);
             }
             filepath = Path.Combine(filepath, highScoreFileParts[1]);
-            Debug.Log("File Path: " + filepath);
+           
             using (BinaryWriter wr = new BinaryWriter(File.Open(filepath, FileMode.OpenOrCreate)))
             {
                 wr.Write(highscore);

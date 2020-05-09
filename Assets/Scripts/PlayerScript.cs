@@ -115,7 +115,7 @@ public class PlayerScript : MonoBehaviour
                     highScore = GameManager.GetHighScore();
                     if (score > highScore)
                     {
-                        Debug.Log("new Highscore");
+                      
                         GameManager.SaveHighScore(score);
                         highScore = score;
                         checkedHighScore = true;

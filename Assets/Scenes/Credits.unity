@@ -386,7 +386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -2, y: 0}
+  m_AnchoredPosition: {x: -2, y: -1}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &286770409
@@ -407,7 +407,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: ae5515ac18c4f114887260269c93ffb9, type: 3}
+  m_Texture: {fileID: 2800000, guid: 3718f9640e8cf8c4e934751305dbcefb, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -1116,7 +1116,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -242, y: -154}
+  m_AnchoredPosition: {x: -228, y: -164}
   m_SizeDelta: {x: 370, y: 64.280014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &647306289
@@ -1150,7 +1150,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Erin Scott
+  m_Text: Erin Scott &
 --- !u!222 &647306290
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2225,7 +2225,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -180, y: -173}
+  m_AnchoredPosition: {x: -38, y: -164}
   m_SizeDelta: {x: 370, y: 64.280014}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1959848883
